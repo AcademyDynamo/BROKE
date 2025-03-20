@@ -6,11 +6,28 @@ body {
     padding: 0;
 }
 
-.field-container {
+.field-wrapper {
     position: relative;
     display: inline-block;
     width: 100%;
     max-width: 600px;
+}
+
+.green-bg {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 400px;
+    background-color: green;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    z-index: -1;
+}
+
+.field-container {
+    position: relative;
+    z-index: 1;
 }
 
 .field-bg {
