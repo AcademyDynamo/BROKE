@@ -1,13 +1,49 @@
-/* Общие стили */
-body {
-    text-align: center;
-    background-color: #0a0a0a;
-    font-family: Arial, sans-serif;
+:root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 215 20.2% 65.1%;
+    --radius: .5rem;
+    --button-m-height: 32px;
+    --bg-darken: #00022c;
+    --bg-primary: #001665;
+    --bg-active: #fede00;
+    --bg-neutral-light: #0088cc;
+    --bg-neutral: #4500ab;
+    --tg-theme-bg-color: #212121;
+    --tg-theme-button-color: #8774e1;
+    --tg-theme-text-color: #ffffff;
+    width: 100%;
+    height: 100dvh;
     margin: 0;
-    padding: 0;
+    position: relative;
+    font-family: Roboto, sans-serif;
+    scrollbar-width: none;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* Обёртка поля */
+/* Фон */
+body {
+    background-color: var(--tg-theme-bg-color);
+    color: var(--tg-theme-text-color);
+}
+
+/* Поле */
 .field-wrapper {
     position: relative;
     display: inline-block;
@@ -15,7 +51,6 @@ body {
     max-width: 600px;
 }
 
-/* Зелёный фон позади поля с перспективой */
 .green-bg {
     position: absolute;
     top: 10px;
@@ -28,18 +63,12 @@ body {
     z-index: -1;
 }
 
-/* Контейнер для поля */
-.field-container {
-    position: relative;
-    z-index: 1;
-}
-
 .field-bg {
     width: 100%;
     opacity: 0.8;
 }
 
-/* Блок с футболками */
+/* Футболки */
 .shirts {
     display: flex;
     justify-content: center;
@@ -49,32 +78,20 @@ body {
     position: relative;
 }
 
-/* Стиль каждого игрока */
 .player {
     text-align: center;
     position: relative;
 }
 
-/* Смещение футболок */
-.player-1 { top: 0px; left: -50px; }
-.player-2 { top: 20px; left: -30px; }
-.player-3 { top: 40px; left: 0px; }
-.player-4 { top: 60px; left: 0px; }
-.player-5 { top: 40px; left: 30px; }
-.player-6 { top: 20px; left: 50px; }
-.player-7 { top: 0px; left: 70px; }
-
-/* Футболки */
 .shirt {
     width: 60px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25); /* Мягкая тень */
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
 }
 
-/* Эффект при наведении */
 .shirt:hover {
     transform: scale(1.2);
-    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3); /* Увеличенная тень */
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Имена игроков */
@@ -105,9 +122,9 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-text-color);
     transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
-    background-color: #222;
-    color: white;
 }
 
 button:hover {
