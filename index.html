@@ -3,14 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantasy League</title>
+    <title>Fantasy Football</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Fantasy League</h1>
-    <h2>������ ���� ������</h2>
-    <div id="players"></div>
-    <button onclick="saveTeam()">��������� ������</button>
-    <script src="app.js"></script>
+    <div class="field-container">
+        <img src="field.png" alt="Футбольное поле" class="field-bg">
+        <div class="shirts">
+            <div class="player">
+                <img src="shirt1.png" class="shirt" alt="Футболка 1">
+                <span class="name">Игрок 1</span>
+            </div>
+            <div class="player">
+                <img src="shirt2.png" class="shirt" alt="Футболка 2">
+                <span class="name">Игрок 2</span>
+            </div>
+            <div class="player">
+                <img src="shirt3.png" class="shirt" alt="Футболка 3">
+                <span class="name">Игрок 3</span>
+            </div>
+            <div class="player">
+                <img src="shirt4.png" class="shirt" alt="Футболка 4">
+                <span class="name">Игрок 4</span>
+            </div>
+            <div class="player">
+                <img src="shirt5.png" class="shirt" alt="Футболка 5">
+                <span class="name">Игрок 5</span>
+            </div>
+            <div class="player">
+                <img src="shirt6.png" class="shirt" alt="Футболка 6">
+                <span class="name">Игрок 6</span>
+            </div>
+            <div class="player">
+                <img src="shirt7.png" class="shirt" alt="Футболка 7">
+                <span class="name">Игрок 7</span>
+            </div>
+        </div>
+        <img src="logo.png" alt="Логотип" class="logo">
+    </div>
+
+    <div class="buttons">
+        <button id="btn1">Кнопка 1</button>
+        <button id="btn2">Кнопка 2</button>
+        <button id="btn3">Кнопка 3</button>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
