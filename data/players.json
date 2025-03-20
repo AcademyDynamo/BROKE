@@ -1,0 +1,16 @@
+[
+  {
+    "id": "player1",
+    "name": "Иванов",
+    "club": "Спартак",
+    "position": "Нападающий",
+    "points": 10
+  },
+  {
+    "id": "player2",
+    "name": "Петров",
+    "club": "Зенит",
+    "position": "Защитник",
+    "points": 5
+  }
+]
