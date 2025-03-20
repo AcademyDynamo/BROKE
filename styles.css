@@ -1,11 +1,74 @@
 body {
-    font-family: Arial, sans-serif;
     text-align: center;
+    background-color: #0a0a0a;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.field-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 600px;
+}
+
+.field-bg {
+    width: 100%;
+    opacity: 0.8;
+}
+
+.shirts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: -300px;
+    position: relative;
 }
 
 .player {
+    text-align: center;
+}
+
+.shirt {
+    width: 60px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.shirt:hover {
+    transform: scale(1.2);
+}
+
+.name {
+    display: block;
+    color: white;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.logo {
+    width: 100px;
+    margin-top: 20px;
+}
+
+.buttons {
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #444;
+    color: white;
 }
