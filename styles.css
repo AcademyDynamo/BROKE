@@ -1,133 +1,34 @@
-:root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 210 40% 98%;
-    --ring: 215 20.2% 65.1%;
-    --radius: .5rem;
-    --button-m-height: 32px;
-    --bg-darken: #00022c;
-    --bg-primary: #001665;
-    --bg-active: #fede00;
-    --bg-neutral-light: #0088cc;
-    --bg-neutral: #4500ab;
-    --tg-theme-bg-color: #212121;
-    --tg-theme-button-color: #8774e1;
-    --tg-theme-text-color: #ffffff;
-    width: 100%;
-    height: 100dvh;
-    margin: 0;
-    position: relative;
-    font-family: Roboto, sans-serif;
-    scrollbar-width: none;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* Фон */
 body {
-    background-color: var(--tg-theme-bg-color);
-    color: var(--tg-theme-text-color);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
 }
 
-/* Поле */
-.field-wrapper {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    max-width: 600px;
-}
-
-.green-bg {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+.container {
     width: 90%;
-    height: 400px;
-    background-color: green;
-    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
-    z-index: -1;
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-.field-bg {
-    width: 100%;
-    opacity: 0.8;
-}
-
-/* Футболки */
-.shirts {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: -250px;
-    position: relative;
+.field {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
 }
 
 .player {
-    text-align: center;
-    position: relative;
-}
-
-.shirt {
-    width: 60px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-.shirt:hover {
-    transform: scale(1.2);
-    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Имена игроков */
-.name {
-    display: block;
+    background: #007bff;
     color: white;
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-/* Логотип */
-.logo {
-    width: 100px;
-    margin-top: 20px;
-}
-
-/* Кнопки */
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-button {
-    padding: 12px 24px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
+    padding: 10px;
     border-radius: 5px;
-    background-color: var(--tg-theme-button-color);
-    color: var(--tg-theme-text-color);
-    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    cursor: pointer;
 }
 
-button:hover {
-    background: #444;
-    transform: scale(1.1);
+.player.selected {
+    background: #28a745;
 }
