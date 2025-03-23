@@ -60,8 +60,8 @@ body {
 /* Карточки игроков */
 .player-card {
     position: absolute;
-    width: 130px;  /* Увеличили на 1.5 раза */
-    height: 162px;  /* Увеличили на 1.5 раза */
+    width: 100px;  /* Увеличили на 1.5 раза */
+    height: 132px;  /* Увеличили на 1.5 раза */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -76,7 +76,7 @@ body {
 
 .player-card .name {
     position: absolute;
-    bottom: 10px;  /* Немного отодвигаем надпись вниз */
+    bottom: 25px;  /* Немного отодвигаем надпись вниз */
     left: 50%;
     transform: translateX(-50%);
     color: #FFFFFF;
