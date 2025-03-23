@@ -9,29 +9,36 @@
 <body>
 
     <!-- Фоновые элементы -->
-    <div class="images/Vector 2.svg"></div>
-    <div class="images/Vector 1.svg"></div>
-    <div class="images/pitch 1.svg"></div>
+    <div class="vector vector-1"></div>
+    <div class="vector vector-2"></div>
 
-    <!-- Размытие -->
-    <div class="blur">
-        <div class="blur-mask"></div>
-        <div class="blur-filter"></div>
-    </div>
+    <!-- Картинка -->
+    <div class="bg-image"></div>
 
     <!-- Заголовок -->
-    <div class="header">ВЫБИРАЙ СОСТАВ</div>
+    <div class="header">Fantasy League</div>
 
-    <!-- Футбольное поле -->
+    <!-- Футбольное поле (SVG) -->
     <div class="pitch">
-        <div class="images/Group 1.svg" data-id="1" style="top: 100px; left: 150px;">
-            <div class="name">Игрок 1</div>
-            <button class="button inactive"></button>
-        </div>
-        <div class="images/Group 1.svg" data-id="2" style="top: 200px; left: 250px;">
-            <div class="name">Игрок 2</div>
-            <button class="button inactive"></button>
-        </div>
+        <svg width="657" height="587" viewBox="0 0 657 587" xmlns="images/pitch 1.svg">
+            <rect width="657" height="587" fill="#3E8E41" />
+            <line x1="328.5" y1="0" x2="328.5" y2="587" stroke="#FFF" stroke-width="4"/>
+            <line x1="0" y1="293.5" x2="657" y2="293.5" stroke="#FFF" stroke-width="4"/>
+        </svg>
+    </div>
+
+    <!-- Карточки игроков (SVG) -->
+    <div class="player-card" data-id="1" style="top: 100px; left: 150px;">
+        <svg width="87" height="108" viewBox="0 0 87 108" xmlns="images/Group 1.svg">
+            <rect width="87" height="108" rx="8" fill="#D33333" />
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="10" font-family="Gotham Bold">Игрок 1</text>
+        </svg>
+    </div>
+    <div class="player-card" data-id="2" style="top: 200px; left: 250px;">
+        <svg width="87" height="108" viewBox="0 0 87 108" xmlns="images/Group 1.svg">
+            <rect width="87" height="108" rx="8" fill="#D33333" />
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="10" font-family="Gotham Bold">Игрок 2</text>
+        </svg>
     </div>
 
     <!-- Список возможных замен -->
