@@ -1,45 +1,45 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const playerCards = document.querySelectorAll(".player-card");
-    const substitutes = document.querySelector(".substitutes");
-    const playerList = document.querySelector(".player-list");
-    let selectedPlayer = null;
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Mini App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-    // Список доступных игроков для замены
-    const availableSubs = [
-        { id: 3, name: "Игрок 3", position: "fw" },
-        { id: 4, name: "Игрок 4", position: "fw" }
-    ];
+    <!-- Фоновые элементы -->
+    <div class="vector vector-1"></div>
+    <div class="vector vector-2"></div>
+    <div class="bg-image"></div>
 
-    // Обработчик нажатия на игрока
-    playerCards.forEach(card => {
-        card.addEventListener("click", () => {
-            selectedPlayer = card;
-            showSubstitutes(card.dataset.position);
-        });
-    });
+    <!-- Размытие -->
+    <div class="blur">
+        <div class="blur-mask"></div>
+        <div class="blur-filter"></div>
+    </div>
 
-    // Показ списка замен
-    function showSubstitutes(position) {
-        playerList.innerHTML = "";
-        availableSubs
-            .filter(player => player.position === position)
-            .forEach(player => {
-                const subCard = document.createElement("div");
-                subCard.classList.add("player-card");
-                subCard.innerHTML = <span class="name">${player.name}</span>;
-                subCard.addEventListener("click", () => replacePlayer(player));
-                playerList.appendChild(subCard);
-            });
+    <!-- Заголовок -->
+    <div class="header">Fantasy League</div>
 
-        substitutes.style.display = "block";
-    }
+    <!-- Футбольное поле -->
+    <div class="pitch">
+        <div class="player-card" data-id="1" style="top: 100px; left: 150px;">
+            <div class="name">Игрок 1</div>
+            <button class="button inactive"></button>
+        </div>
+        <div class="player-card" data-id="2" style="top: 200px; left: 250px;">
+            <div class="name">Игрок 2</div>
+            <button class="button inactive"></button>
+        </div>
+    </div>
 
-    // Замена игрока
-    function replacePlayer(newPlayer) {
-        if (selectedPlayer) {
-            selectedPlayer.querySelector(".name").textContent = newPlayer.name;
-            substitutes.style.display = "none";
-            selectedPlayer = null;
-        }
-    }
-});
+    <!-- Список возможных замен -->
+    <div class="replacement-list hidden">
+        <div class="replacement-card" data-id="3">Игрок 3</div>
+        <div class="replacement-card" data-id="4">Игрок 4</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
