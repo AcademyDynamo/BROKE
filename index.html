@@ -2,36 +2,35 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=414, height=834, initial-scale=1.0">
-    <title>Fantasy League</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Mini App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="vector vector-1"></div>
-    <div class="vector vector-2"></div>
-    
+
+    <!-- Фоновое изображение -->
     <div class="bg-image"></div>
 
+    <!-- Фоновые вектора -->
+    <div class="vector vector-1"></div>
+    <div class="vector vector-2"></div>
+
+    <!-- Размытие -->
     <div class="blur">
         <div class="blur-mask"></div>
-        <div class="blur-filter"></div>
     </div>
 
+    <!-- Заголовок -->
     <div class="header">Fantasy League</div>
 
-    <div class="pitch">
-        <div class="player-card" style="left: 50px; top: 50px;">
-            <div class="background"></div>
-            <div class="name">Игрок 1</div>
-            <button class="button active" onclick="togglePlayer(this)">+</button>
-        </div>
-        <div class="player-card" style="left: 150px; top: 150px;">
-            <div class="background"></div>
-            <div class="name">Игрок 2</div>
-            <button class="button active" onclick="togglePlayer(this)">+</button>
-        </div>
-    </div>
+    <!-- Поле -->
+    <div class="pitch" id="players"></div>
+
+    <!-- Форма загрузки и подтверждение -->
+    <input type="file" id="playerImageUpload" accept="image/*">
+    <button id="submitTeam" class="button active">Подтвердить состав</button>
 
     <script src="script.js"></script>
+
 </body>
 </html>
