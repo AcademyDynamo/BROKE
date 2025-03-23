@@ -1,39 +1,82 @@
-const players = [
-    { id: 1, name: "Игрок 1", img: "" },
-    { id: 2, name: "Игрок 2", img: "" },
-    { id: 3, name: "Игрок 3", img: "" },
-    { id: 4, name: "Игрок 4", img: "" },
-    { id: 5, name: "Игрок 5", img: "" },
-    { id: 6, name: "Игрок 6", img: "" },
-];
+const tg = window.Telegram.WebApp;
+tg.expand(); // Разворачиваем мини-апп
 
+const userPoints = document.getElementById("userPoints");
+const teamContainer = document.getElementById("team");
 const playersContainer = document.getElementById("players");
-const imageUpload = document.getElementById("playerImageUpload");
+const editTeamBtn = document.getElementById("editTeamBtn");
+const playerSelection = document.getElementById("playerSelection");
+const saveTeamBtn = document.getElementById("saveTeamBtn");
 
-players.forEach(player => {
-    const div = document.createElement("div");
-    div.classList.add("player");
-    div.innerText = player.name;
-    div.onclick = () => div.classList.toggle("selected");
+let team = [];
+let availablePlayers = [];
 
-    playersContainer.appendChild(div);
-});
+// Запрос данных о текущем составе и очках
+fetch("/api/user-data")
+    .then(response => response.json())
+    .then(data => {
+        userPoints.textContent = data.points;
+        team = data.team;
+        renderTeam();
+    });
 
-imageUpload.addEventListener("change", function(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const selectedPlayers = document.querySelectorAll(".player.selected");
-            selectedPlayers.forEach(player => {
-                player.innerHTML = <img src="${e.target.result}" alt="Игрок">;
-            });
-        };
-        reader.readAsDataURL(file);
+// Запрос доступных игроков
+fetch("/api/players")
+    .then(response => response.json())
+    .then(data => {
+        availablePlayers = data;
+        renderPlayers();
+    });
+
+// Отобразить команду пользователя
+function renderTeam() {
+    teamContainer.innerHTML = "";
+    team.forEach(player => {
+        let div = document.createElement("div");
+        div.className = "player";
+        div.textContent = player.name;
+        teamContainer.appendChild(div);
+    });
+}
+
+// Отобразить список доступных игроков
+function renderPlayers() {
+    playersContainer.innerHTML = "";
+    availablePlayers.forEach(player => {
+        let div = document.createElement("div");
+        div.className = "player";
+        div.textContent = player.name;
+        div.onclick = () => togglePlayerSelection(player);
+        playersContainer.appendChild(div);
+    });
+}
+
+// Переключение выбора игрока
+function togglePlayerSelection(player) {
+    const index = team.findIndex(p => p.id === player.id);
+    if (index !== -1) {
+        team.splice(index, 1); // Удаляем из команды
+    } else if (team.length < 7) {
+        team.push(player); // Добавляем в команду
     }
-});
+    renderTeam();
+}
 
-document.getElementById("submitTeam").onclick = () => {
-    const selectedPlayers = [...document.querySelectorAll(".player.selected")].map(p => p.innerText || "Игрок с фото");
-    alert("Вы выбрали: " + selectedPlayers.join(", "));
+// Открыть редактор команды
+editTeamBtn.onclick = () => {
+    playerSelection.classList.toggle("hidden");
+};
+
+// Сохранить состав
+saveTeamBtn.onclick = () => {
+    fetch("/api/save-team", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ team }),
+    }).then(response => response.json())
+    .then(data => {
+        tg.showAlert(data.message);
+        playerSelection.classList.add("hidden");
+        renderTeam();
+    });
 };
