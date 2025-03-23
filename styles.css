@@ -90,32 +90,12 @@ body {
     object-fit: contain;
 }
 
-/* Список замен */
-.replacement-list {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 200px;
-    background: #FFF;
-    border-radius: 8px;
-    padding: 10px;
-    text-align: center;
-    display: none;
+/* Стили для перетаскивания */
+.player-card.dragging {
+    opacity: 0.5;
 }
 
-.replacement-list .replacement-card {
-    padding: 5px;
-    background: #D33333;
-    color: white;
-    margin-bottom: 5px;
-    cursor: pointer;
-}
-
-.replacement-list .replacement-card:hover {
-    background: #B22222;
-}
-
-.hidden {
-    display: none;
+/* Стили для активного перетаскивания текста */
+.name.dragging {
+    opacity: 0.5;
 }
