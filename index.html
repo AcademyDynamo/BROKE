@@ -1,36 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantasy Mini App</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Mini App</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="bg-image"></div>
+    <div class="vector vector-1"></div>
+    <div class="vector vector-2"></div>
 
-    <!-- Фоновое изображение -->
-    <div class="bg-image"></div>
+    <div class="header">Моя команда</div>
 
-    <!-- Фоновые вектора -->
-    <div class="vector vector-1"></div>
-    <div class="vector vector-2"></div>
+    <div class="pitch">
+        <!-- Игроки на поле -->
+        <div class="player-card" data-position="fw" data-id="1" style="top: 50px; left: 150px;">
+            <span class="name">Игрок 1</span>
+            <button class="button inactive"></button>
+        </div>
+        <div class="player-card" data-position="fw" data-id="2" style="top: 50px; left: 250px;">
+            <span class="name">Игрок 2</span>
+            <button class="button inactive"></button>
+        </div>
+    </div>
 
-    <!-- Размытие -->
-    <div class="blur">
-        <div class="blur-mask"></div>
-    </div>
+    <!-- Список доступных замен -->
+    <div class="substitutes">
+        <h3>Выберите замену</h3>
+        <div class="player-list"></div>
+    </div>
 
-    <!-- Заголовок -->
-    <div class="header">Fantasy League</div>
-
-    <!-- Поле -->
-    <div class="pitch" id="players"></div>
-
-    <!-- Форма загрузки и подтверждение -->
-    <input type="file" id="playerImageUpload" accept="image/*">
-    <button id="submitTeam" class="button active">Подтвердить состав</button>
-
-    <script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
