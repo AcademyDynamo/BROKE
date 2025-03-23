@@ -2,36 +2,33 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=414, height=834, initial-scale=1.0">
     <title>Fantasy League</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1 class="header-title">Fantasy League</h1>
+    <div class="vector vector-1"></div>
+    <div class="vector vector-2"></div>
+    
+    <div class="bg-image"></div>
 
-        <!-- Блок с очками -->
-        <div class="score">
-            <h2>Очки: <span id="userPoints">0</span></h2>
+    <div class="blur">
+        <div class="blur-mask"></div>
+        <div class="blur-filter"></div>
+    </div>
+
+    <div class="header">Fantasy League</div>
+
+    <div class="pitch">
+        <div class="player-card" style="left: 50px; top: 50px;">
+            <div class="background"></div>
+            <div class="name">Игрок 1</div>
+            <button class="button active" onclick="togglePlayer(this)">+</button>
         </div>
-
-        <!-- Состав команды -->
-        <h2>Твой состав</h2>
-        <div id="team" class="team">
-            <!-- Игроки будут загружаться динамически -->
-        </div>
-
-        <!-- Кнопка редактирования состава -->
-        <button id="editTeamBtn">Редактировать состав</button>
-
-        <!-- Выбор игроков (по умолчанию скрыт) -->
-        <div id="playerSelection" class="hidden">
-            <h2>Выбери игроков</h2>
-            <div id="players" class="players">
-                <!-- Игроки будут подгружаться из API -->
-            </div>
-            <button id="saveTeamBtn">Сохранить состав</button>
+        <div class="player-card" style="left: 150px; top: 150px;">
+            <div class="background"></div>
+            <div class="name">Игрок 2</div>
+            <button class="button active" onclick="togglePlayer(this)">+</button>
         </div>
     </div>
 
