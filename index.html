@@ -1,36 +1,25 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantasy Mini App</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="bg-image"></div>
-    <div class="vector vector-1"></div>
-    <div class="vector vector-2"></div>
+document.addEventListener("DOMContentLoaded", () => {
+    let selectedPlayer = null;
 
-    <div class="header">Моя команда</div>
+    document.querySelectorAll(".player-card").forEach(player => {
+        player.addEventListener("click", () => {
+            selectedPlayer = player;
+            showReplacementList();
+        });
+    });
 
-    <div class="pitch">
-        <!-- Игроки на поле -->
-        <div class="player-card" data-position="fw" data-id="1" style="top: 50px; left: 150px;">
-            <span class="name">Игрок 1</span>
-            <button class="button inactive"></button>
-        </div>
-        <div class="player-card" data-position="fw" data-id="2" style="top: 50px; left: 250px;">
-            <span class="name">Игрок 2</span>
-            <button class="button inactive"></button>
-        </div>
-    </div>
+    function showReplacementList() {
+        const list = document.querySelector(".replacement-list");
+        list.classList.remove("hidden");
+    }
 
-    <!-- Список доступных замен -->
-    <div class="substitutes">
-        <h3>Выберите замену</h3>
-        <div class="player-list"></div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    document.querySelectorAll(".replacement-card").forEach(card => {
+        card.addEventListener("click", () => {
+            if (selectedPlayer) {
+                selectedPlayer.querySelector(".name").textContent = card.textContent;
+                selectedPlayer.dataset.id = card.dataset.id;
+                document.querySelector(".replacement-list").classList.add("hidden");
+            }
+        });
+    });
+});
