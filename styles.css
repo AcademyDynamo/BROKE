@@ -3,63 +3,48 @@
 body {
     background: #791617;
     position: relative;
-    width: 414px;
-    height: 834px;
+    width: 100%;
+    height: 100vh;
     margin: 0;
     overflow: hidden;
     font-family: 'Gotham Bold', sans-serif;
-    left: 150px; /* Сдвигаем всё тело вправо на 150px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-/* Фоновое оформление */
-.vector {
-    position: absolute;
-    width: 577.5px;
-    height: 448.5px;
-    background: rgba(207, 21, 21, 0.41);
-    transform: rotate(-14.89deg);
-    left: 150px; /* Сдвигаем фоновый элемент вправо */
-}
-
-.vector-1 {
-    left: -150px; /* Сдвигаем фоновый элемент вправо */
-    top: -191.6px;
-}
-
-.vector-2 {
-    left: 227px; /* Сдвигаем фоновый элемент вправо */
-    top: 743.4px;
-    background: rgba(207, 21, 21, 0.55);
-}
-
+/* Фоновое изображение */
 .bg-image {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url('IMG_20210110_134112_074.png') no-repeat center;
+    background: url('IMG_20210110_134112_074.png') no-repeat center center;
     background-size: cover;
     opacity: 0.1;
-    left: 150px; /* Сдвигаем фоновое изображение вправо */
 }
 
-/* Эффекты размытия */
+/* Эффект размытия */
 .blur {
     position: absolute;
-    width: 660px;
-    height: 1311px;
-    left: 150px; /* Сдвигаем размытие вправо */
-}
-
-.blur-mask {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 10%, #000 20%);
+    backdrop-filter: blur(5px);
 }
 
-.blur-filter {
-    background: rgba(30, 30, 30, 0.01);
-    backdrop-filter: blur(1.28px);
+/* Заголовок */
+.header {
+    font-family: 'Gotham Bold', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #FFFFFF;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Поле */
@@ -67,8 +52,9 @@ body {
     position: absolute;
     width: 657px;
     height: 587px;
-    left: 28px; /* Сдвигаем поле вправо */
-    top: 117px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 150px;
 }
 
 /* Карточки игроков */
@@ -87,31 +73,17 @@ body {
     font-size: 10px;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
-    left: 150px; /* Сдвигаем карточки вправо */
 }
 
-.player-card:active {
-    transform: scale(1.1);
-}
-
-/* Кнопки */
-.button {
-    width: 18px;
-    height: 18px;
-    border: none;
-    border-radius: 50%;
+.player-card .name {
     margin-top: 5px;
-    cursor: pointer;
 }
 
-.button.active {
-    background: #D33333;
-    color: #FFFFFF;
-}
-
-.button.inactive {
-    background: rgba(217, 217, 217, 0.67);
-    color: rgba(55, 11, 11, 0.47);
+.player-card img {
+    width: 100%;
+    height: auto;
+    max-height: 80%;
+    object-fit: contain;
 }
 
 /* Список замен */
@@ -126,7 +98,6 @@ body {
     padding: 10px;
     text-align: center;
     display: none;
-    left: 150px; /* Сдвигаем список замен вправо */
 }
 
 .replacement-list .replacement-card {
