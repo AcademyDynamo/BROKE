@@ -3,8 +3,8 @@
 body {
     background: #791617;
     position: relative;
-    width: 414px;
-    height: 834px;
+    width: 100%;
+    height: 100vh;
     margin: 0;
     overflow: hidden;
     font-family: 'Gotham Bold', sans-serif;
