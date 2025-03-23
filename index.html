@@ -8,37 +8,28 @@
 </head>
 <body>
 
-    <!-- Фоновые элементы -->
-    <div class="vector vector-1"></div>
-    <div class="vector vector-2"></div>
-
-    <!-- Картинка -->
+    <!-- Фоновое изображение -->
     <div class="bg-image"></div>
+
+    <!-- Фоновое размытие -->
+    <div class="blur"></div>
 
     <!-- Заголовок -->
     <div class="header">Fantasy League</div>
 
     <!-- Футбольное поле (SVG) -->
     <div class="pitch">
-        <svg width="657" height="587" viewBox="0 0 657 587" xmlns="images/pitch 1.svg">
-            <rect width="657" height="587" fill="#3E8E41" />
-            <line x1="328.5" y1="0" x2="328.5" y2="587" stroke="#FFF" stroke-width="4"/>
-            <line x1="0" y1="293.5" x2="657" y2="293.5" stroke="#FFF" stroke-width="4"/>
-        </svg>
+        <img src="images/pitch%201.svg" alt="Поле" />
     </div>
 
     <!-- Карточки игроков (SVG) -->
     <div class="player-card" data-id="1" style="top: 100px; left: 150px;">
-        <svg width="87" height="108" viewBox="0 0 87 108" xmlns="images/Group 1.svg">
-            <rect width="87" height="108" rx="8" fill="#D33333" />
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="10" font-family="Gotham Bold">Игрок 1</text>
-        </svg>
+        <img src="images/Group%201.svg" alt="Игрок 1" />
+        <div class="name">Игрок 1</div>
     </div>
     <div class="player-card" data-id="2" style="top: 200px; left: 250px;">
-        <svg width="87" height="108" viewBox="0 0 87 108" xmlns="images/Group 1.svg">
-            <rect width="87" height="108" rx="8" fill="#D33333" />
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="10" font-family="Gotham Bold">Игрок 2</text>
-        </svg>
+        <img src="images/Group%201.svg" alt="Игрок 2" />
+        <div class="name">Игрок 2</div>
     </div>
 
     <!-- Список возможных замен -->
