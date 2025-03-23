@@ -60,8 +60,8 @@ body {
 /* Карточки игроков */
 .player-card {
     position: absolute;
-    width: 87px;
-    height: 108px;
+    width: 130px;  /* Увеличили на 1.5 раза */
+    height: 162px;  /* Увеличили на 1.5 раза */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -69,18 +69,18 @@ body {
     text-align: center;
     background: none;
     color: #FFFFFF;
-    font-size: 10px;
+    font-size: 15px; /* Увеличиваем размер шрифта для имени */
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
 }
 
 .player-card .name {
     position: absolute;
-    bottom: 25px; /* Поместить надпись в нижнюю часть карточки */
+    bottom: 10px;  /* Немного отодвигаем надпись вниз */
     left: 50%;
     transform: translateX(-50%);
     color: #FFFFFF;
-    font-size: 9px;
+    font-size: 16px; /* Увеличиваем размер шрифта для имени */
 }
 
 .player-card img {
