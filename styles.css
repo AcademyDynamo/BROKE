@@ -75,7 +75,12 @@ body {
 }
 
 .player-card .name {
-    margin-top: 5px;
+    position: absolute;
+    bottom: 5px; /* Поместить надпись в нижнюю часть карточки */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #FFFFFF;
+    font-size: 12px;
 }
 
 .player-card img {
