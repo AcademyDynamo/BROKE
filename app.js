@@ -1,6 +1,6 @@
 const substitutes = [
-    { id: 8, name: "Игрок 8", position: "goalkeeper", img: "Group 5.svg" },
-    { id: 9, name: "Игрок 9", position: "defender", img: "Group 5.svg" }
+    { id: 8, name: "Игрок 8", position: "goalkeeper", img: "images/player8.svg" },
+    { id: 9, name: "Игрок 9", position: "defender", img: "images/player9.svg" }
 ];
 
 // Загрузка случайного изображения в group-5
