@@ -1,42 +1,38 @@
-function showSubstitutes(player) {
-    let position = player.dataset.position;
-    let menu = document.querySelector('.substitutes-menu');
+document.addEventListener("DOMContentLoaded", () => {
+    const players = document.querySelectorAll(".player");
+    const menu = document.getElementById("playerMenu");
+    let activeCaptain = null;
 
-    // Фильтруем замену по позиции
-    document.querySelectorAll('.substitute').forEach(sub => {
-        if (sub.dataset.position === position) {
-            sub.style.display = "block";
-        } else {
-            sub.style.display = "none";
-        }
+    players.forEach(player => {
+        const captainIcon = player.querySelector(".captain-icon");
+
+        // Клик по игроку – показ меню
+        player.addEventListener("click", (event) => {
+            const rect = player.getBoundingClientRect();
+            menu.style.left = ${rect.left + rect.width / 2}px;
+            menu.style.top = ${rect.bottom + 10}px;
+            menu.style.display = "block";
+            setTimeout(() => (menu.style.opacity = "1"), 10);
+        });
+
+        // Клик по капитанской иконке – переключение
+        captainIcon.addEventListener("click", (event) => {
+            event.stopPropagation();
+            if (activeCaptain) activeCaptain.style.opacity = "0.3";
+            if (activeCaptain === captainIcon) {
+                activeCaptain = null;
+            } else {
+                captainIcon.style.opacity = "1";
+                activeCaptain = captainIcon;
+            }
+        });
     });
 
-    if (menu.classList.contains('show')) {
-        menu.classList.remove('show');
-        setTimeout(() => { menu.style.display = 'none'; }, 300);
-    } else {
-        let rect = player.getBoundingClientRect();
-        menu.style.top = (rect.top + window.scrollY + 30) + 'px';
-        menu.style.left = (rect.left + window.scrollX) + 'px';
-        menu.style.display = 'block';
-        setTimeout(() => { menu.classList.add('show'); }, 10);
-    }
-}
-
-function swapPlayer(sub) {
-    let activePlayer = document.querySelector('.player-card.active');
-    if (activePlayer) {
-        let playerImg = activePlayer.querySelector('.player-icon');
-        let subImg = sub.querySelector('img');
-
-        playerImg.src = subImg.src;
-        document.querySelector('.substitutes-menu').classList.remove('show');
-        setTimeout(() => { document.querySelector('.substitutes-menu').style.display = 'none'; }, 300);
-    }
-}
-
-function toggleCaptain(event, icon) {
-    event.stopPropagation();
-    document.querySelectorAll('.captain-icon').forEach(el => el.classList.remove('active'));
-    icon.classList.add('active');
-}
+    // Скрытие меню при клике вне
+    document.addEventListener("click", (event) => {
+        if (!event.target.closest(".player") && !event.target.closest(".player-menu")) {
+            menu.style.opacity = "0";
+            setTimeout(() => (menu.style.display = "none"), 300);
+        }
+    });
+});
