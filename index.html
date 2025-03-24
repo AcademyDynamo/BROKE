@@ -1,38 +1,31 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const players = document.querySelectorAll(".player");
-    const menu = document.getElementById("playerMenu");
-    let activeCaptain = null;
-
-    players.forEach(player => {
-        const captainIcon = player.querySelector(".captain-icon");
-
-        // Клик по игроку – показ меню
-        player.addEventListener("click", (event) => {
-            const rect = player.getBoundingClientRect();
-            menu.style.left = ${rect.left + rect.width / 2}px;
-            menu.style.top = ${rect.bottom + 10}px;
-            menu.style.display = "block";
-            setTimeout(() => (menu.style.opacity = "1"), 10);
-        });
-
-        // Клик по капитанской иконке – переключение
-        captainIcon.addEventListener("click", (event) => {
-            event.stopPropagation();
-            if (activeCaptain) activeCaptain.style.opacity = "0.3";
-            if (activeCaptain === captainIcon) {
-                activeCaptain = null;
-            } else {
-                captainIcon.style.opacity = "1";
-                activeCaptain = captainIcon;
-            }
-        });
-    });
-
-    // Скрытие меню при клике вне
-    document.addEventListener("click", (event) => {
-        if (!event.target.closest(".player") && !event.target.closest(".player-menu")) {
-            menu.style.opacity = "0";
-            setTimeout(() => (menu.style.display = "none"), 300);
-        }
-    });
-});
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fantasy Football</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="field">
+        <div class="player" id="player1">
+            <img src="player.png" alt="Игрок 1">
+            <span class="name">Игрок 1</span>
+            <div class="captain-icon" id="captain1">C</div>
+        </div>
+        <div class="player" id="player2">
+            <img src="player.png" alt="Игрок 2">
+            <span class="name">Игрок 2</span>
+            <div class="captain-icon" id="captain2">C</div>
+        </div>
+    </div>
+    <div class="player-menu" id="playerMenu">
+        <ul>
+            <li>Действие 1</li>
+            <li>Действие 2</li>
+            <li>Действие 3</li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
