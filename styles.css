@@ -1,6 +1,6 @@
 /* Фон */
 body {
-    background: 720000;
+    background: black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,11 +28,20 @@ body {
     position: absolute;
     width: 100px;
     height: 132px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Иконка игрока */
+.player-icon {
+    width: 100px;
+    height: 120px;
     cursor: pointer;
     transition: transform 0.2s ease;
 }
 
-.player-card:active {
+.player-icon:active {
     transform: scale(0.9);
 }
 
@@ -64,9 +73,12 @@ body {
     opacity: 0;
     transform: scale(0.8);
     transition: opacity 0.3s ease, transform 0.3s ease;
+    display: none;
 }
 
+/* Показываем меню */
 .substitutes-menu.show {
+    display: block;
     opacity: 1;
     transform: scale(1);
 }
