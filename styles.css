@@ -29,46 +29,18 @@ body {
 /* Игроки */
 .player-card {
     position: absolute;
-    width: 130px;
-    height: 162px;
+    width: 100px;
+    height: 132px;
     cursor: pointer;
-    transition: transform 0.2s;
 }
 
-.player-card:active {
-    transform: scale(0.95);
-}
-
-/* Меню замен */
-.substitutes-menu {
-    position: absolute;
-    display: none;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
-    text-align: center;
-    width: 150px;
-}
-
-.substitutes-menu.show {
-    display: block;
-}
-
-/* Иконка капитана */
+/* Иконка капитана (теперь изображение) */
 .captain-icon {
     position: absolute;
     top: 5px;
     right: 5px;
-    background: yellow;
-    color: black;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
     opacity: 0.3;
     cursor: pointer;
     transition: opacity 0.2s;
@@ -76,4 +48,23 @@ body {
 
 .captain-icon.active {
     opacity: 1;
+}
+
+/* Меню замен */
+.substitutes-menu {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    width: 150px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.substitutes-menu.show {
+    opacity: 1;
+    transform: translateY(0);
 }
