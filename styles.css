@@ -1,114 +1,67 @@
-/* Фон */
 body {
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #ad0000;
     margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-/* Контейнер игры */
 .game-container {
+    position: relative;
     width: 414px;
     height: 834px;
-    position: relative;
-    background: transparent;
+    margin: auto;
+    overflow: hidden;
 }
 
-/* Поле */
 .pitch {
+    width: 100%;
     position: absolute;
-    width: 657px;
-    height: 587px;
 }
 
-/* Игроки */
 .player-card {
     position: absolute;
-    width: 100px;
-    height: 132px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 120px;
+    height: 150px;
+    text-align: center;
+    cursor: pointer;
 }
 
-/* Иконка игрока */
 .player-icon {
-    width: 100px;
-    height: 120px;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+    width: 100%;
 }
 
-.player-icon:active {
-    transform: scale(0.9);
+.player-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
 }
 
-/* Капитанская иконка */
 .captain-icon {
+    width: 30px;
+    height: 30px;
     position: absolute;
-    top: 5px;
-    right: 5px;
-    width: 20px;
-    height: 20px;
-    opacity: 0.3;
+    bottom: 10px;
+    right: 10px;
     cursor: pointer;
-    transition: opacity 0.2s;
+    opacity: 0.3;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .captain-icon.active {
     opacity: 1;
 }
 
-/* Меню замен */
 .substitutes-menu {
     position: absolute;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px;
-    border-radius: 10px;
+    background: black;
     color: white;
-    text-align: center;
-    width: 150px;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    padding: 10px;
+    border-radius: 5px;
     display: none;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Показываем меню */
 .substitutes-menu.show {
     display: block;
     opacity: 1;
     transform: scale(1);
-}
-
-/* Список замен */
-.substitutes-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* Игрок в списке замен */
-.substitute {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    padding: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    transition: background 0.2s;
-}
-
-.substitute:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* Изображение игрока в списке замен */
-.substitute img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
 }
