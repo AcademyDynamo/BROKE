@@ -2,83 +2,65 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=414, initial-scale=1.0">
+    <meta name="viewport" content="width=414, height=834, initial-scale=1.0">
     <title>Fantasy Mini App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Фон -->
-    <div class="bg-black"></div>
-
-    <!-- Контейнер игры -->
     <div class="game-container">
+        <!-- Поле -->
+        <img src="вставь изображение поля" alt="Football Pitch" class="pitch">
+
+        <!-- Игроки -->
+        <div class="player-card" style="top: 500px; left: 150px;" onclick="toggleSubstitutes(this)">
+            <img src="вставь изображение игрока 1" alt="Player">
+            <img src="вставь изображение К" class="captain-icon" onclick="toggleCaptain(event, this)">
+        </div>
         
-        <!-- Заголовок -->
-        <div class="header">СОБИРАЙ СОСТАВ</div>
+        <div class="player-card" style="top: 400px; left: 50px;" onclick="toggleSubstitutes(this)">
+            <img src="вставь изображение игрока 2" alt="Player">
+            <img src="вставь изображение К" class="captain-icon" onclick="toggleCaptain(event, this)">
+        </div>
 
-        <!-- Футбольное поле -->
-        <div class="pitch">
-            <img src="images/pitch 1.svg" alt="Поле" />
+        <div class="player-card" style="top: 400px; left: 50px;" onclick="toggleSubstitutes(this)">
+            <img src="вставь изображение игрока 2" alt="Player">
+            <img src="вставь изображение К" class="captain-icon" onclick="toggleCaptain(event, this)">
+        </div>
 
-            <!-- Игроки на поле -->
-            <div class="player-card" style="top: 500px; left: 150px;" data-id="1" data-position="goalkeeper" onclick="showSubstitutes(this)">
-                <div class="group-5">
-                    <img class="player-img" src="Group 5.svg" alt="Игрок 1" />
-                    <div class="name">Игрок 1</div>
-                    <img class="captain-icon" src="captain-icon.svg" alt="Капитан" onclick="setCaptain(event, this)">
+        <div class="player-card" style="top: 400px; left: 50px;" onclick="toggleSubstitutes(this)">
+            <img src="вставь изображение игрока 2" alt="Player">
+            <img src="вставь изображение К" class="captain-icon" onclick="toggleCaptain(event, this)">
+        </div>
+
+        <div class="player-card" style="top: 400px; left: 50px;" onclick="toggleSubstitutes(this)">
+            <img src="вставь изображение игрока 2" alt="Player">
+            <img src="вставь изображение К" class="captain-icon" onclick="toggleCaptain(event, this)">
+        </div>
+
+        <div class="player-card" style="top: 400px; left: 50px;" onclick="toggleSubstitutes(this)">
+            <img src="вставь изображение игрока 2" alt="Player">
+            <img src="вставь изображение К" class="captain-icon" onclick="toggleCaptain(event, this)">
+        </div>
+
+        <div class="player-card" style="top: 400px; left: 50px;" onclick="toggleSubstitutes(this)">
+            <img src="вставь изображение игрока 2" alt="Player">
+            <img src="вставь изображение К" class="captain-icon" onclick="toggleCaptain(event, this)">
+        </div>
+
+        <!-- Список замен -->
+        <div class="substitutes-menu">
+            <div class="substitutes-list">
+                <div class="substitute" onclick="swapPlayer(this)">
+                    <img src="Ресурс 1.svg" alt="Substitute">
+                    <span>Игрок 1</span>
                 </div>
-            </div>
-            <div class="player-card" style="top: 400px; left: 100px;" data-id="2" data-position="defender" onclick="showSubstitutes(this)">
-                <div class="group-5">
-                    <img class="player-img" src="Group 5.svg" alt="Игрок 2" />
-                    <div class="name">Игрок 2</div>
-                    <img class="captain-icon" src="captain-icon.svg" alt="Капитан" onclick="setCaptain(event, this)">
-                </div>
-            </div>
-            <div class="player-card" style="top: 10px; left: 130px;" data-id="2" data-position="defender" onclick="showSubstitutes(this)">
-                <div class="group-5">
-                    <img class="player-img" src="Group 5.svg" alt="Игрок 2" />
-                    <div class="name">Игрок 2</div>
-                    <img class="captain-icon" src="captain-icon.svg" alt="Капитан" onclick="setCaptain(event, this)">
-                </div>
-            </div>
-            <div class="player-card" style="top: 41px; left: 30px;" data-id="2" data-position="defender" onclick="showSubstitutes(this)">
-                <div class="group-5">
-                    <img class="player-img" src="Group 5.svg" alt="Игрок 2" />
-                    <div class="name">Игрок 2</div>
-                    <img class="captain-icon" src="captain-icon.svg" alt="Капитан" onclick="setCaptain(event, this)">
-                </div>
-            </div>
-            <div class="player-card" style="top: 130px; left: 82px;" data-id="2" data-position="defender" onclick="showSubstitutes(this)">
-                <div class="group-5">
-                    <img class="player-img" src="Group 5.svg" alt="Игрок 2" />
-                    <div class="name">Игрок 2</div>
-                    <img class="captain-icon" src="captain-icon.svg" alt="Капитан" onclick="setCaptain(event, this)">
-                </div>
-            </div>
-            <div class="player-card" style="top: 152px; left: 150px;" data-id="2" data-position="defender" onclick="showSubstitutes(this)">
-                <div class="group-5">
-                    <img class="player-img" src="Group 5.svg" alt="Игрок 2" />
-                    <div class="name">Игрок 2</div>
-                    <img class="captain-icon" src="captain-icon.svg" alt="Капитан" onclick="setCaptain(event, this)">
-                </div>
-            </div>
-            <div class="player-card" style="top: 220px; left: 190px;" data-id="2" data-position="defender" onclick="showSubstitutes(this)">
-                <div class="group-5">
-                    <img class="player-img" src="Group 5.svg" alt="Игрок 2" />
-                    <div class="name">Игрок 2</div>
-                    <img class="captain-icon" src="captain-icon.svg" alt="Капитан" onclick="setCaptain(event, this)">
+                <div class="substitute" onclick="swapPlayer(this)">
+                    <img src="Ресурс 1.svg" alt="Substitute">
+                    <span>Игрок 2</span>
                 </div>
             </div>
         </div>
-
-        <!-- Меню замены -->
-        <div class="substitutes-menu" id="substitutes-menu">
-            <h3>Выберите замену</h3>
-            <div class="substitutes-list" id="substitutes-list"></div>
-        </div>
-
     </div>
 
     <script src="script.js"></script>
