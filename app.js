@@ -1,11 +1,15 @@
 const substitutes = [
-    { id: 8, name: "Игрок 8", position: "goalkeeper", img: "images/player8.svg" },
-    { id: 9, name: "Игрок 9", position: "defender", img: "images/player9.svg" }
+    { id: 8, name: "Игрок 8", position: "goalkeeper", img: "Group 5.svg" },
+    { id: 9, name: "Игрок 9", position: "defender", img: "Group 5.svg" }
 ];
 
-let currentCaptain = null;
+// Загрузка случайного изображения в group-5
+document.querySelectorAll(".player-img").forEach(img => {
+    const randomNum = Math.floor(Math.random() * 10) + 1;
+    img.src = images/изображения ${randomNum}.svg;
+});
 
-// Показ списка замен
+// Анимация появления списка замен
 function showSubstitutes(playerCard) {
     const position = playerCard.dataset.position;
     const filteredSubs = substitutes.filter(sub => sub.position === position);
@@ -28,18 +32,17 @@ function showSubstitutes(playerCard) {
 // Замена игрока
 function substitutePlayer(playerCard, sub) {
     playerCard.querySelector(".name").innerText = sub.name;
-    playerCard.querySelector("img").src = sub.img;
+    playerCard.querySelector(".player-img").src = sub.img;
     document.getElementById("substitutes-menu").classList.remove("show");
 }
 
-// Выбор капитана
-function toggleCaptain(captain) {
-    if (currentCaptain === captain) {
-        captain.classList.remove("active");
-        currentCaptain = null;
-    } else {
-        document.querySelectorAll(".captain").forEach(el => el.classList.remove("active"));
-        captain.classList.add("active");
-        currentCaptain = captain;
-    }
+// Установка капитана
+function setCaptain(event, icon) {
+    event.stopPropagation(); // Предотвращаем вызов showSubstitutes
+
+    // Убираем капитана у всех игроков
+    document.querySelectorAll(".captain-icon").forEach(el => el.classList.remove("active"));
+    
+    // Назначаем капитана выбранному игроку
+    icon.classList.add("active");
 }
