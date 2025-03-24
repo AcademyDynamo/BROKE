@@ -35,8 +35,8 @@ body {
 /* Карточки игроков */
 .player-card {
     position: absolute;
-    width: 130px;
-    height: 162px;
+    width: 100px;
+    height: 132px;
     display: flex;
     flex-direction: column;
     align-items: center;
