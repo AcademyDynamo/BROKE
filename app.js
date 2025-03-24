@@ -1,33 +1,33 @@
-const substitutes = [
-    { id: 8, name: "Игрок 8", position: "goalkeeper", img: "вставь изображения" },
-    { id: 9, name: "Игрок 9", position: "defender", img: "вставь изображения" }
-];
-
-// Открытие списка замен рядом с игроком
-function showSubstitutes(playerCard) {
-    const position = playerCard.dataset.position;
-    const filteredSubs = substitutes.filter(sub => sub.position === position);
-
-    const subList = document.getElementById("substitutes-list");
-    subList.innerHTML = "";
-
-    filteredSubs.forEach(sub => {
-        const subItem = document.createElement("div");
-        subItem.classList.add("substitute");
-        subItem.innerHTML = <img src="${sub.img}" alt="${sub.name}"><span>${sub.name}</span>;
-        subItem.onclick = () => substitutePlayer(playerCard, sub);
-        subList.appendChild(subItem);
-    });
-
-    const menu = document.getElementById("substitutes-menu");
-    menu.style.top = playerCard.offsetTop + "px";
-    menu.style.left = playerCard.offsetLeft + 100 + "px";
-    menu.classList.add("show");
+// Показ/скрытие списка замен
+function toggleSubstitutes(player) {
+    let menu = document.querySelector('.substitutes-menu');
+    
+    if (menu.classList.contains('show')) {
+        menu.classList.remove('show');
+    } else {
+        menu.style.top = player.offsetTop + 'px';
+        menu.style.left = (player.offsetLeft + 50) + 'px';
+        menu.classList.add('show');
+    }
 }
 
-// Установка капитана
-function setCaptain(event, icon) {
+// Логика смены капитана
+function toggleCaptain(event, icon) {
     event.stopPropagation();
-    document.querySelectorAll(".captain-icon").forEach(el => el.classList.remove("active"));
-    icon.classList.add("active");
+    
+    document.querySelectorAll('.captain-icon').forEach(el => el.classList.remove('active'));
+    icon.classList.add('active');
+}
+
+// Логика замены игрока
+function swapPlayer(sub) {
+    let activePlayer = document.querySelector('.player-card.active');
+    if (activePlayer) {
+        let playerImg = activePlayer.querySelector('img:first-child');
+        let subImg = sub.querySelector('img');
+        
+        playerImg.src = subImg.src;
+        
+        document.querySelector('.substitutes-menu').classList.remove('show');
+    }
 }
