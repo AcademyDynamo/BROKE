@@ -1,15 +1,9 @@
 const substitutes = [
-    { id: 8, name: "Игрок 8", position: "goalkeeper", img: "images/player8.svg" },
-    { id: 9, name: "Игрок 9", position: "defender", img: "images/player9.svg" }
+    { id: 8, name: "Игрок 8", position: "goalkeeper", img: "вставь изображения" },
+    { id: 9, name: "Игрок 9", position: "defender", img: "вставь изображения" }
 ];
 
-// Загрузка случайного изображения в group-5
-document.querySelectorAll(".player-img").forEach(img => {
-    const randomNum = Math.floor(Math.random() * 10) + 1;
-    img.src = images/изображения ${randomNum}.svg;
-});
-
-// Анимация появления списка замен
+// Открытие списка замен рядом с игроком
 function showSubstitutes(playerCard) {
     const position = playerCard.dataset.position;
     const filteredSubs = substitutes.filter(sub => sub.position === position);
@@ -25,7 +19,10 @@ function showSubstitutes(playerCard) {
         subList.appendChild(subItem);
     });
 
-    document.getElementById("substitutes-menu").classList.add("show");
+    const menu = document.getElementById("substitutes-menu");
+    menu.style.top = playerCard.offsetTop + "px";
+    menu.style.left = playerCard.offsetLeft + 100 + "px";
+    menu.classList.add("show");
 }
 
 // Установка капитана
