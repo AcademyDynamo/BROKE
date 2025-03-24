@@ -53,11 +53,11 @@ body {
 
 .player-card .name {
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     color: #FFFFFF;
-    font-size: 16px;
+    font-size: 8px;
 }
 
 /* Меню замен */
