@@ -2,24 +2,24 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=414, initial-scale=1.0">
     <title>Fantasy Mini App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Фоновое изображение -->
+    <!-- Фон -->
     <div class="image_2025-03-24_13-28-58.png"></div>
 
-    <!-- Фоновое размытие -->
-    <div class="blur"></div>
+    <!-- Контейнер игры -->
+    <div class="game-container">
+        
+        <!-- Заголовок -->
+        <div class="header">Fantasy League</div>
 
-    <!-- Заголовок -->
-    <div class="header">Fantasy League</div>
-
-    <!-- Футбольное поле (SVG) -->
-    <div class="pitch">
-        <img src="images/pitch%201.svg" alt="Поле" />
+        <!-- Футбольное поле -->
+        <div class="pitch">
+            <img src="images/pitch%201.svg" alt="Поле" />
         
         <!-- Карточки игроков (на поле) -->
         <div class="player-card" data-id="1" style="bottom: 7%; left: 50%; transform: translateX(-50%);" draggable="true">
@@ -52,10 +52,13 @@
         </div>
     </div>
 
-    <!-- Меню замены -->
-    <div class="substitutes-menu" id="substitutes-menu">
-        <h3>Выберите замену</h3>
-        <div class="substitutes-list" id="substitutes-list"></div>
+
+        <!-- Меню замены -->
+        <div class="substitutes-menu" id="substitutes-menu">
+            <h3>Выберите замену</h3>
+            <div class="substitutes-list" id="substitutes-list"></div>
+        </div>
+
     </div>
 
     <script src="script.js"></script>
