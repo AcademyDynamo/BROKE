@@ -3,6 +3,12 @@ const substitutes = [
     { id: 9, name: "Игрок 9", position: "defender", img: "Group 5.svg" }
 ];
 
+// Загрузка случайного изображения в group-5
+document.querySelectorAll(".player-img").forEach(img => {
+    const randomNum = Math.floor(Math.random() * 10) + 1;
+    img.src = images/изображения ${randomNum}.svg;
+});
+
 // Анимация появления списка замен
 function showSubstitutes(playerCard) {
     const position = playerCard.dataset.position;
@@ -19,24 +25,12 @@ function showSubstitutes(playerCard) {
         subList.appendChild(subItem);
     });
 
-    const menu = document.getElementById("substitutes-menu");
-    menu.classList.add("show");
-}
-
-// Замена игрока
-function substitutePlayer(playerCard, sub) {
-    playerCard.querySelector(".name").innerText = sub.name;
-    playerCard.querySelector(".player-img").src = sub.img;
-    document.getElementById("substitutes-menu").classList.remove("show");
+    document.getElementById("substitutes-menu").classList.add("show");
 }
 
 // Установка капитана
 function setCaptain(event, icon) {
-    event.stopPropagation(); // Предотвращаем вызов showSubstitutes
-
-    // Убираем капитана у всех игроков
+    event.stopPropagation();
     document.querySelectorAll(".captain-icon").forEach(el => el.classList.remove("active"));
-    
-    // Назначаем капитана выбранному игроку
     icon.classList.add("active");
 }
