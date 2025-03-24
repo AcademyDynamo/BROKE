@@ -1,36 +1,30 @@
-// Получаем все элементы с классом .name (имена игроков)
-const names = document.querySelectorAll('.name');
+const substitutes = [
+    { id: 8, name: "Игрок 8", surname: "Фамилия", position: "goalkeeper", img: "images/player8.svg" },
+    { id: 9, name: "Игрок 9", surname: "Фамилия", position: "defender", img: "images/player9.svg" },
+    { id: 10, name: "Игрок 10", surname: "Фамилия", position: "midfielder", img: "images/player10.svg" },
+    { id: 11, name: "Игрок 11", surname: "Фамилия", position: "forward", img: "images/player11.svg" }
+];
 
-// Функция для обработки начала перетаскивания
-names.forEach(name => {
-    name.addEventListener('dragstart', (event) => {
-        event.target.classList.add('dragging'); // Добавляем класс "dragging"
-        event.dataTransfer.setData("text", event.target.innerText); // Сохраняем текст для перемещения
+function showSubstitutes(playerCard) {
+    const position = playerCard.dataset.position;
+    const filteredSubs = substitutes.filter(sub => sub.position === position);
+
+    const subList = document.getElementById("substitutes-list");
+    subList.innerHTML = "";
+
+    filteredSubs.forEach(sub => {
+        const subItem = document.createElement("div");
+        subItem.classList.add("substitute");
+        subItem.innerHTML = <img src="${sub.img}" alt="${sub.name}"><span>${sub.name} ${sub.surname}</span>;
+        subItem.onclick = () => substitutePlayer(playerCard, sub);
+        subList.appendChild(subItem);
     });
 
-    // Функция для обработки окончания перетаскивания
-    name.addEventListener('dragend', () => {
-        name.classList.remove('dragging'); // Убираем класс "dragging"
-    });
+    document.getElementById("substitutes-menu").style.display = "block";
+}
 
-    // Разрешаем элементу быть перетаскиваемым
-    name.addEventListener('dragover', (event) => {
-        event.preventDefault();
-        const card = event.target.closest('.player-card');
-        if (card) {
-            const offsetX = event.clientX - card.offsetLeft;
-            const offsetY = event.clientY - card.offsetTop;
-            card.style.transform = translate(${offsetX - card.offsetWidth / 2}px, ${offsetY - card.offsetHeight / 2}px);
-        }
-    });
-
-    name.addEventListener('dragend', (event) => {
-        const card = event.target.closest('.player-card');
-        if (card) {
-            const rect = card.getBoundingClientRect();
-            const x = rect.left + rect.width / 2;
-            const y = rect.top + rect.height / 2;
-            card.style.transform = translate(${x - card.offsetWidth / 2}px, ${y - card.offsetHeight / 2}px);
-        }
-    });
-});
+function substitutePlayer(playerCard, sub) {
+    playerCard.querySelector(".name").innerText = ${sub.name};
+    playerCard.querySelector("img").src = sub.img;
+    document.getElementById("substitutes-menu").style.display = "none";
+}
