@@ -76,7 +76,7 @@ body {
 
 .player-card .name {
     position: absolute;
-    bottom: 25px;  /* Немного отодвигаем надпись вниз */
+    bottom: 20px;  /* Немного отодвигаем надпись вниз */
     left: 50%;
     transform: translateX(-50%);
     color: #FFFFFF;
