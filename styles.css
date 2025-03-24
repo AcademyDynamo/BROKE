@@ -20,6 +20,11 @@ body {
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.player:active {
+    transform: scale(0.9); /* Эффект нажатия */
 }
 
 .player img {
@@ -55,14 +60,14 @@ body {
     position: absolute;
     bottom: 10%;
     left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
+    transform: translateX(-50%) scale(0.8);
+    background: rgba(0, 0, 0, 0.9);
     color: white;
     padding: 10px;
     border-radius: 5px;
     display: none;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .player-menu ul {
