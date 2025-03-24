@@ -1,75 +1,38 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=414, height=834, initial-scale=1.0">
-    <title>Fantasy Mini App</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+document.addEventListener("DOMContentLoaded", () => {
+    const players = document.querySelectorAll(".player");
+    const menu = document.getElementById("playerMenu");
+    let activeCaptain = null;
 
-    <div class="game-container">
-        <!-- Поле -->
-        <img src="images/pitch 1.svg" alt="Football Pitch" class="pitch">
+    players.forEach(player => {
+        const captainIcon = player.querySelector(".captain-icon");
 
-        <!-- Игроки -->
-        <div class="player-card" data-position="Вратарь" style="top: 600px; left: 160px;" onclick="showSubstitutes(this)">
-            <img src="Group 5.svg" class="player-icon">
-            <span class="player-name">Игрок 1 (ВРТ)</span>
-            <img src="captain-icon.svg" class="captain-icon" onclick="toggleCaptain(event, this)">
-        </div>
-        
-        <div class="player-card" data-position="Защитник" style="top: 450px; left: 60px;" onclick="showSubstitutes(this)">
-            <img src="Group 5.svg" class="player-icon">
-            <span class="player-name">Игрок 2 (ЗЩ)</span>
-            <img src="captain-icon.svg" class="captain-icon" onclick="toggleCaptain(event, this)">
-        </div>
+        // Клик по игроку – показ меню
+        player.addEventListener("click", (event) => {
+            const rect = player.getBoundingClientRect();
+            menu.style.left = ${rect.left + rect.width / 2}px;
+            menu.style.top = ${rect.bottom + 10}px;
+            menu.style.display = "block";
+            setTimeout(() => (menu.style.opacity = "1"), 10);
+        });
 
-        <div class="player-card" data-position="Защитник" style="top: 450px; left: 260px;" onclick="showSubstitutes(this)">
-            <img src="Group 5.svg" class="player-icon">
-            <span class="player-name">Игрок 3 (ЗЩ)</span>
-            <img src="captain-icon.svg" class="captain-icon" onclick="toggleCaptain(event, this)">
-        </div>
+        // Клик по капитанской иконке – переключение
+        captainIcon.addEventListener("click", (event) => {
+            event.stopPropagation();
+            if (activeCaptain) activeCaptain.style.opacity = "0.3";
+            if (activeCaptain === captainIcon) {
+                activeCaptain = null;
+            } else {
+                captainIcon.style.opacity = "1";
+                activeCaptain = captainIcon;
+            }
+        });
+    });
 
-        <div class="player-card" data-position="Полузащитник" style="top: 320px; left: 110px;" onclick="showSubstitutes(this)">
-            <img src="Group 5.svg" class="player-icon">
-            <span class="player-name">Игрок 4 (ПЗ)</span>
-            <img src="captain-icon.svg" class="captain-icon" onclick="toggleCaptain(event, this)">
-        </div>
-
-        <div class="player-card" data-position="Полузащитник" style="top: 320px; left: 210px;" onclick="showSubstitutes(this)">
-            <img src="Group 5.svg" class="player-icon">
-            <span class="player-name">Игрок 5 (ПЗ)</span>
-            <img src="captain-icon.svg" class="captain-icon" onclick="toggleCaptain(event, this)">
-        </div>
-
-        <div class="player-card" data-position="Нападающий" style="top: 200px; left: 50px;" onclick="showSubstitutes(this)">
-            <img src="Group 5.svg" class="player-icon">
-            <span class="player-name">Игрок 6 (НП)</span>
-            <img src="captain-icon.svg" class="captain-icon" onclick="toggleCaptain(event, this)">
-        </div>
-
-        <div class="player-card" data-position="Нападающий" style="top: 200px; left: 270px;" onclick="showSubstitutes(this)">
-            <img src="Group 5.svg" class="player-icon">
-            <span class="player-name">Игрок 7 (НП)</span>
-            <img src="captain-icon.svg" class="captain-icon" onclick="toggleCaptain(event, this)">
-        </div>
-
-        <!-- Список замен -->
-        <div class="substitutes-menu">
-            <div class="substitutes-list">
-                <div class="substitute" data-position="Полузащитник" onclick="swapPlayer(this)">
-                    <img src="Ресурс 1.svg" alt="Substitute">
-                    <span>Запасной ПЗ</span>
-                </div>
-                <div class="substitute" data-position="Нападающий" onclick="swapPlayer(this)">
-                    <img src="Ресурс 1.svg" alt="Substitute">
-                    <span>Запасной НП</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    // Скрытие меню при клике вне
+    document.addEventListener("click", (event) => {
+        if (!event.target.closest(".player") && !event.target.closest(".player-menu")) {
+            menu.style.opacity = "0";
+            setTimeout(() => (menu.style.display = "none"), 300);
+        }
+    });
+});
