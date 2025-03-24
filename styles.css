@@ -1,6 +1,6 @@
 /* Фон */
 body {
-    background: black;
+    background: red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,23 +14,11 @@ body {
     height: 834px;
     position: relative;
     background: transparent;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Заголовок */
-.header {
-    font-family: 'Arial', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 10px;
 }
 
 /* Поле */
 .pitch {
-    position: relative;
+    position: absolute;
     width: 657px;
     height: 587px;
 }
@@ -41,21 +29,14 @@ body {
     width: 100px;
     height: 132px;
     cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-/* Стиль имени игрока */
-.name {
-    font-family: 'Arial', sans-serif;
-    font-size: 8px;
-    font-weight: bold;
-    top: 20px;
-    color: white;
-    text-align: center;
-    margin-top: 5px;
-    text-transform: uppercase;
+.player-card:active {
+    transform: scale(0.9);
 }
 
-/* Иконка капитана (теперь изображение) */
+/* Капитанская иконка */
 .captain-icon {
     position: absolute;
     top: 5px;
@@ -81,13 +62,13 @@ body {
     text-align: center;
     width: 150px;
     opacity: 0;
-    transform: translateY(20px);
+    transform: scale(0.8);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .substitutes-menu.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: scale(1);
 }
 
 /* Список замен */
