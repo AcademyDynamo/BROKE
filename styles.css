@@ -1,4 +1,4 @@
-/* Фон чёрный, кроме layout */
+/* Фон */
 body {
     background: black;
     display: flex;
