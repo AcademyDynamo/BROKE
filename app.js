@@ -3,12 +3,6 @@ const substitutes = [
     { id: 9, name: "Игрок 9", position: "defender", img: "Group 5.svg" }
 ];
 
-// Загрузка случайного изображения в group-5
-document.querySelectorAll(".player-img").forEach(img => {
-    const randomNum = Math.floor(Math.random() * 10) + 1;
-    img.src = images/изображения ${randomNum}.svg;
-});
-
 // Анимация появления списка замен
 function showSubstitutes(playerCard) {
     const position = playerCard.dataset.position;
