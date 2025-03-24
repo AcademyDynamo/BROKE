@@ -1,63 +1,61 @@
 body {
     background: #791617;
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-    font-family: 'Gotham Bold', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-}
-
-/* Фон */
-.bg-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url('IMG_20210110_134112_074.png') no-repeat center;
-    background-size: cover;
-    opacity: 0.1;
+    height: 100vh;
+    margin: 0;
 }
 
 /* Поле */
 .pitch {
-    position: absolute;
+    position: relative;
     width: 657px;
     height: 587px;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 150px;
 }
 
-/* Карточки игроков */
+/* Игроки */
 .player-card {
     position: absolute;
     width: 100px;
     height: 132px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: none;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.player-card:active {
+    transform: scale(0.95);
 }
 
 .player-card img {
     width: 100%;
-    height: auto;
 }
 
 .player-card .name {
     position: absolute;
-    bottom: 20px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    color: #FFFFFF;
+    color: white;
     font-size: 8px;
+}
+
+/* Капитан */
+.captain {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: gold;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.captain.active {
+    opacity: 1;
 }
 
 /* Меню замен */
@@ -73,26 +71,11 @@ body {
     color: white;
     text-align: center;
     width: 80%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
-.substitutes-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.substitute {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.substitute img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+.substitutes-menu.show {
+    display: block;
+    opacity: 1;
 }
