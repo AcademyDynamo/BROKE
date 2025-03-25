@@ -1,0 +1,37 @@
+.field {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-image: url("вставь изображения 3");
+  background-size: cover;
+}
+
+.player-slot {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-icon {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.captain-icon {
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.captain-icon img {
+  width: 20px;
+  height: 20px;
+}
