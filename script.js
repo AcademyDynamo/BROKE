@@ -1,101 +1,58 @@
-// Database with players and teams
-const footballers = [
-    {
-        id: 1,
-        name: "Player 1",
-        team: "Team A",
-        position: "Forward",
-        teamLogo: "images/teamA-logo.svg",
-        image: "images/Ресурс 1.svg"
-    },
-    {
-        id: 2,
-        name: "Player 2",
-        team: "Team B",
-        position: "Midfielder",
-        teamLogo: "images/teamB-logo.svg",
-        image: "images/Ресурс 1.svg"
-    },
-    {
-        id: 3,
-        name: "Player 3",
-        team: "Team C",
-        position: "Defender",
-        teamLogo: "images/teamC-logo.svg",
-        image: "images/Ресурс 1.svg"
-    }
-];
+import footballers from '../database.js';
 
-// Function to handle player click animation
-function handlePlayerClick(playerId) {
-    const player = document.getElementById(player-${playerId});
-    player.classList.add('clicked');
+// Функция для создания иконок игроков на поле
+function renderPlayers() {
+  const playersContainer = document.querySelector('.players');
+  
+  footballers.forEach((player, index) => {
+    const playerElement = document.createElement('div');
+    playerElement.classList.add('player-icon');
+    playerElement.style.top = ${(index + 1) * 100}px;  // Позиционируем по оси Y
+    playerElement.style.left = ${(index + 1) * 100}px; // Позиционируем по оси X
+    playerElement.innerHTML = <img src="${player.playerImage}" alt="Player" id="player-${player.id}" />;
     
-    // Reset animation after a short delay
-    setTimeout(() => {
-        player.classList.remove('clicked');
-    }, 500);
-
-    showSubstitutionList(playerId);
+    playerElement.addEventListener('click', () => handlePlayerClick(player.id));
+    playersContainer.appendChild(playerElement);
+  });
 }
 
-// Function to show substitution list
-function showSubstitutionList(playerId) {
-    const playerList = document.getElementById('player-list');
-    playerList.innerHTML = '';  // Clear the list first
+// Обработка клика по иконке игрока
+function handlePlayerClick(playerId) {
+  const playerElement = document.getElementById(player-${playerId});
+  playerElement.classList.toggle('clicked'); // Анимация нажатия на иконку игрока
 
-    footballers.forEach(player => {
-        if (player.id !== playerId) {
-            const button = document.createElement('button');
-            button.textContent = Substitute with ${player.name};
-            button.onclick = () => substitutePlayer(playerId, player.id);
-            playerList.appendChild(button);
-        }
-    });
+  // Показываем список игроков, на которых можно заменить выбранного
+  const playerList = document.getElementById('playerList');
+  playerList.innerHTML = '';  // Очистить список перед добавлением новых данных
 
-    playerList.classList.add('active');
+  footballers.forEach(player => {
+    const listItem = document.createElement('li');
+    listItem.innerText = ${player.name} - ${player.position};
+    listItem.addEventListener('click', () => replacePlayer(playerId, player.id));
+    playerList.appendChild(listItem);
+  });
 }
 
-// Function to substitute player
-function substitutePlayer(oldPlayerId, newPlayerId) {
-    const oldPlayer = document.getElementById(player-${oldPlayerId});
-    const newPlayer = footballers.find(player => player.id === newPlayerId);
-
-    const playerIcon = oldPlayer.querySelector('.player-icon');
-    playerIcon.src = newPlayer.image;
-
-    hideSubstitutionList();
+// Замена игрока
+function replacePlayer(oldPlayerId, newPlayerId) {
+  const oldPlayerElement = document.getElementById(player-${oldPlayerId});
+  const newPlayer = footballers.find(player => player.id === newPlayerId);
+  
+  oldPlayerElement.innerHTML = <img src="${newPlayer.playerImage}" alt="Player" id="player-${newPlayer.id}" />;
+  oldPlayerElement.classList.remove('clicked');
 }
 
-// Hide substitution list
-function hideSubstitutionList() {
-    document.getElementById('player-list').classList.remove('active');
+// Активация/деактивация капитанской иконки
+function toggleCaptainIcon(playerId) {
+  const captainIcons = document.querySelectorAll('.captain');
+  captainIcons.forEach(icon => icon.style.opacity = 0.3); // Деактивировать все капитанские иконки
+  
+  const selectedPlayer = document.getElementById(player-${playerId});
+  selectedPlayer.classList.add('captain');
+  selectedPlayer.style.opacity = 1;  // Сделать активную иконку капитаном
 }
 
-// Function to toggle captain icon
-function toggleCaptain() {
-    const captainIcon = document.getElementById('captain-icon');
-    const players = document.querySelectorAll('.player .player-icon');
-
-    if (captainIcon.parentElement.classList.contains('active')) {
-        captainIcon.parentElement.classList.remove('active');
-        players.forEach(player => {
-            player.style.opacity = '1';
-        });
-    } else {
-        captainIcon.parentElement.classList.add('active');
-        players.forEach(player => {
-            player.style.opacity = '0.3';
-        });
-    }
-}
-
-// Event listeners
-document.querySelectorAll('.player').forEach(player => {
-    player.addEventListener('click', () => {
-        const playerId = player.dataset.playerId;
-        handlePlayerClick(playerId);
-    });
+// Инициализация
+document.addEventListener('DOMContentLoaded', () => {
+  renderPlayers();
 });
-
-document.getElementById('captain-icon').addEventListener('click', toggleCaptain);
