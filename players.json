@@ -1,0 +1,5 @@
+[
+    { "name": "Игрок 1", "img": "assets/images/player1.png" },
+    { "name": "Игрок 2", "img": "assets/images/player2.png" },
+    { "name": "Игрок 3", "img": "assets/images/player3.png" }
+]
