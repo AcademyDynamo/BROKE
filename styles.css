@@ -1,63 +1,83 @@
-@import url('https://fonts.googleapis.com/css2?family=Gotham:wght@700&display=swap');
-
+/* Основные стили */
 body {
-    background: #791617;
-    position: relative;
-    width: 414px;
-    height: 834px;
-    margin: 0;
-    overflow: hidden;
+  background: #791617;
+  position: relative;
+  width: 414px;
+  height: 834px;
+  margin: 0;
+  overflow: hidden;
 }
 
-.app {
-    text-align: center;
-    color: #fff;
-    font-family: 'Gotham', sans-serif;
+.vector {
+  position: absolute;
+  width: 577.5px;
+  height: 448.5px;
+  background: rgba(207, 21, 21, 0.41);
+  transform: rotate(-14.89deg);
 }
 
+.vector-1 {
+  left: -300px;
+  top: -191.6px;
+}
+
+.vector-2 {
+  left: 77px;
+  top: 743.4px;
+  background: rgba(207, 21, 21, 0.55);
+}
+
+/* Фоновое изображение */
+.bg-image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('images/IMG_20210110_134112_074 1.svg') no-repeat center;
+  background-size: cover;
+  opacity: 0.1;
+}
+
+/* Поле */
 .pitch {
-    position: relative;
-    width: 657px;
-    height: 587px;
-    margin: auto;
-    background: url('images/pitch.svg') no-repeat center;
-    background-size: cover;
+  position: absolute;
+  width: 657px;
+  height: 587px;
+  left: -122px;
+  top: 117px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
+/* Карточки игроков */
 .player-card {
-    position: absolute;
-    width: 87px;
-    height: 108px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: #D33333;
-    border-radius: 8px;
-    color: #FFFFFF;
-    font-size: 10px;
-    cursor: pointer;
+  position: relative;
+  width: 87px;
+  height: 108px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #D33333;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-family: 'Gotham Bold', sans-serif;
+  font-size: 10px;
+  margin: 5px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+.player-card .name {
+  margin-top: 5px;
+}
+
+/* Капитанская иконка */
 .captain-icon {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.captain-icon.active {
-    background: #FFFFFF;
-    color: #D33333;
-}
-
-.captain-icon.inactive {
-    background: rgba(217, 217, 217, 0.67);
-    color: rgba(55, 11, 11, 0.47);
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background: url('captain-icon.svg') no-repeat center;
+  background-size: cover;
+  transition: opacity 0.3s ease;
 }
