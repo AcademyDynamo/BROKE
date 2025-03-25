@@ -1,48 +1,56 @@
 body {
-    background-color: #202020;
+    background-color: #8B0000; /* Тёмно-красный фон */
     color: white;
     font-family: Arial, sans-serif;
+    text-align: center;
 }
 
-#field {
-    position: relative;
+.field {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.player-slot {
+    width: 100px;
+    height: 120px;
+    background-color: #FF4500; /* Оранжево-красный */
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.player-slot:hover {
+    transform: scale(1.1);
+}
+
+#player-list {
+    position: fixed;
+    bottom: 0;
     width: 100%;
-    max-width: 800px;
-    margin: auto;
+    background: #660000; /* Тёмно-красный */
+    display: none;
+    padding: 10px;
 }
 
-.player {
-    position: absolute;
+#player-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+#player-list li {
+    padding: 10px;
+    background: #FF6347; /* Красный */
+    margin: 5px 0;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: background 0.3s;
 }
 
-.player-icon {
-    width: 50px;
-    height: 50px;
-}
-
-.captain-icon {
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    opacity: 0.3;
-}
-
-.captain-icon.active {
-    opacity: 1;
-}
-
-.substitute-button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 5px 10px;
-}
-
-.substitute-button:hover {
-    background-color: #45a049;
+#player-list li:hover {
+    background: #DC143C; /* Тёмно-алый */
 }
