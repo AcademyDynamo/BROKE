@@ -1,40 +1,32 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+/* Основные стили для поля и иконок */
+.pitch {
+  width: 100%;
+  height: auto;
 }
 
-#pitch {
-    position: relative;
+.players {
+  position: relative;
 }
 
-.player {
-    position: absolute;
-    cursor: pointer;
+.player-icon {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  transition: transform 0.2s ease;
 }
 
-#substitute-btn {
-    margin-top: 20px;
+.player-icon.clicked {
+  transform: scale(1.2);
 }
 
-.captain img {
-    width: 50px;
-    opacity: 0.3;
-    cursor: pointer;
+.captain {
+  opacity: 0.3;
 }
 
-.captain.active img {
-    opacity: 1;
+.player-list ul {
+  list-style-type: none;
 }
 
-.player-list {
-    margin-top: 20px;
-    display: none;
-}
-
-.player-list.active {
-    display: block;
-}
-
-.player-list button {
-    margin: 5px;
+.player-list li {
+  cursor: pointer;
 }
