@@ -1,0 +1,7 @@
+[
+    {"id": 1, "name": "Мануэль Нойер", "position": "GK", "image": "public/images/Ресурс 2.svg"},
+    {"id": 2, "name": "Йозуа Киммих", "position": "DF", "image": "public/images/Ресурс 2.svg"},
+    {"id": 3, "name": "Давид Алаба", "position": "DF", "image": "public/images/Ресурс 2.svg"},
+    {"id": 4, "name": "Леон Горетцка", "position": "MF", "image": "public/images/Ресурс 2.svg"},
+    {"id": 5, "name": "Роберт Левандовски", "position": "FW", "image": "public/images/Ресурс 2.svg"}
+]
