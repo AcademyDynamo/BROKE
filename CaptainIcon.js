@@ -1,14 +1,15 @@
 import React from "react";
 
-const CaptainIcon = ({ active, onClick }) => {
-    return (
-        <div
-            className={captain-icon ${active ? "active" : "inactive"}}
-            onClick={onClick}
-        >
-            C
-        </div>
-    );
-};
+function CaptainIcon({ isActive, onClick }) {
+  return (
+    <div
+      className="captain-icon"
+      onClick={onClick}
+      style={{ opacity: isActive ? "1" : "0.3" }}
+    >
+      captain-icon.svg
+    </div>
+  );
+}
 
 export default CaptainIcon;
