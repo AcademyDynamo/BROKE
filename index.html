@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fantasy League</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Fantasy League</h1>
-    <div id="field">
-        <!-- Игроки будут добавлены динамически -->
+    <div class="app">
+        <h1>Fantasy League</h1>
+        <div class="field">
+            <div class="position" data-pos="GK"></div>
+            <div class="position" data-pos="DEF"></div>
+            <div class="position" data-pos="MID"></div>
+            <div class="position" data-pos="FWD"></div>
+        </div>
+        <button id="confirmTeam">Подтвердить команду</button>
     </div>
-
-    <div id="player-list">
-        <h2>Выберите замену</h2>
-        <ul id="players"></ul>
+    
+    <div class="player-modal hidden">
+        <div class="modal-content">
+            <h2>Выберите игрока</h2>
+            <div id="playerList"></div>
+            <button id="closeModal">Закрыть</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
