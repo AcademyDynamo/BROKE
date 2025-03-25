@@ -7,25 +7,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="app">
-        <h1>Fantasy League</h1>
-        <div class="field">
-            <div class="position" data-pos="GK"></div>
-            <div class="position" data-pos="DEF"></div>
-            <div class="position" data-pos="MID"></div>
-            <div class="position" data-pos="FWD"></div>
+
+    <header>
+        <h1>Fantasy Football</h1>
+    </header>
+
+    <main>
+        <div id="field">
+            <div class="player-slot" data-position="GK"></div>
+            <div class="player-slot" data-position="DEF"></div>
+            <div class="player-slot" data-position="MID"></div>
+            <div class="player-slot" data-position="FWD"></div>
         </div>
-        <button id="confirmTeam">Подтвердить команду</button>
-    </div>
-    
-    <div class="player-modal hidden">
-        <div class="modal-content">
-            <h2>Выберите игрока</h2>
-            <div id="playerList"></div>
-            <button id="closeModal">Закрыть</button>
-        </div>
+    </main>
+
+    <div id="player-list">
+        <input type="text" id="search" placeholder="Поиск игроков...">
+        <ul id="players"></ul>
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
