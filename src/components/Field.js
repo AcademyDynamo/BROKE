@@ -34,7 +34,7 @@ const Field = () => {
 
   return (
     <div className="field">
-      <img src="вставь изображения 3" alt="Football Field" className="field-img" />
+      <img src="images/pitch.svg" alt="Football Field" className="field-img" />
       {players.map((player) => (
         <div key={player.id} className="player-slot">
           <PlayerIcon player={player} onClick={handlePlayerClick} />
