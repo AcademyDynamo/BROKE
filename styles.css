@@ -1,21 +1,38 @@
-/* styles.css */
+body {
+    background-color: #202020;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
 #field {
     position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
 }
 
 .player {
     position: absolute;
     cursor: pointer;
+    transition: transform 0.2s;
 }
 
 .player-icon {
     width: 50px;
     height: 50px;
-    transition: transform 0.2s;
 }
 
-#substitution-list {
-    margin-top: 20px;
+.captain-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    opacity: 0.3;
+}
+
+.captain-icon.active {
+    opacity: 1;
 }
 
 .substitute-button {
@@ -23,6 +40,7 @@
     color: white;
     border: none;
     cursor: pointer;
+    padding: 5px 10px;
 }
 
 .substitute-button:hover {
