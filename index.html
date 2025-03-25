@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,22 +9,25 @@
 <body>
     <div id="field">
         <img src="images/pitch.svg" alt="Football Field" id="pitch">
-        
-        <!-- Пример игрока на поле -->
+
+        <!-- Игроки на поле -->
         <div class="player" id="player-1" data-player-id="1">
             <img src="images/group 5.svg" alt="Player" class="player-icon">
         </div>
-        
-        <!-- Добавьте другие игроки по аналогии -->
+        <div class="player captain" id="player-2" data-player-id="2">
+            <img src="images/group 5.svg" alt="Player" class="player-icon">
+            <img src="images/captain-icon.svg" alt="Captain" class="captain-icon">
+        </div>
+        <!-- Добавьте еще 5 игроков по аналогии -->
     </div>
 
-    <!-- Список для замены игрока -->
+    <!-- Список игроков для замены -->
     <div id="substitution-list">
         <h3>Выберите игрока для замены:</h3>
         <ul>
-            <!-- Пример игрока для замены -->
-            <li data-substitute-id="2">Player 2 (Midfielder) - <button class="substitute-button">Заменить</button></li>
-            <!-- Добавьте других игроков для замены -->
+            <li data-substitute-id="3">Player 3 (Midfielder) - <button class="substitute-button">Заменить</button></li>
+            <li data-substitute-id="4">Player 4 (Defender) - <button class="substitute-button">Заменить</button></li>
+            <li data-substitute-id="5">Player 5 (Forward) - <button class="substitute-button">Заменить</button></li>
         </ul>
     </div>
 
