@@ -1,6 +1,5 @@
-// scripts.js
 document.addEventListener("DOMContentLoaded", function() {
-    // Делаем все игроки кликабельными
+    // Анимация нажатия на игрока
     const players = document.querySelectorAll('.player');
     players.forEach(player => {
         player.addEventListener('click', function() {
@@ -8,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Функция для анимации нажатия на иконку игрока
     function animatePlayerClick(player) {
         player.querySelector('.player-icon').style.transform = 'scale(1.2)';
         setTimeout(() => {
@@ -16,26 +14,26 @@ document.addEventListener("DOMContentLoaded", function() {
         }, 200);
     }
 
-    // Функция для замены игрока
+    // Замена игрока
     const substituteButtons = document.querySelectorAll('.substitute-button');
     substituteButtons.forEach(button => {
         button.addEventListener('click', function() {
             const substituteId = this.parentElement.getAttribute('data-substitute-id');
-            const playerToReplace = document.querySelector(#player-${substituteId});
-            replacePlayer(playerToReplace);
+            replacePlayer(substituteId);
         });
     });
 
-    // Замена игрока
-    function replacePlayer(playerToReplace) {
-        const newPlayerId = '3'; // Выбирайте нового игрока (в данном случае Player 3)
-        const newPlayer = footballers.find(player => player.id === parseInt(newPlayerId));
+    function replacePlayer(substituteId) {
+        const playerToReplace = document.querySelector(".player"); // Берем первого попавшегося
+        const newPlayer = footballers.find(player => player.id === parseInt(substituteId));
 
-        playerToReplace.querySelector('.player-icon').src = newPlayer.image;
-        playerToReplace.setAttribute('data-player-id', newPlayer.id);
+        if (newPlayer) {
+            playerToReplace.querySelector('.player-icon').src = newPlayer.image;
+            playerToReplace.setAttribute('data-player-id', newPlayer.id);
+        }
     }
 
-    // Активировать и деактивировать иконку капитана
+    // Функция выбора капитана
     const captainIcons = document.querySelectorAll('.captain-icon');
     captainIcons.forEach(icon => {
         icon.addEventListener('click', function() {
@@ -43,15 +41,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Функция для включения/выключения иконки капитана
     function toggleCaptain(clickedIcon) {
-        const allCaptainIcons = document.querySelectorAll('.captain-icon');
-        allCaptainIcons.forEach(icon => {
-            if (icon !== clickedIcon) {
-                icon.style.opacity = '0.3';
-            }
+        captainIcons.forEach(icon => {
+            icon.classList.remove('active');
+            icon.style.opacity = '0.3';
         });
 
+        clickedIcon.classList.add('active');
         clickedIcon.style.opacity = '1';
     }
 });
