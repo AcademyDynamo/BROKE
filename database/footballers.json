@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "team": "Team A",
+    "position": "Forward",
+    "image": "Ресурс 1.svg",
+    "teamImage": "teamA-logo.svg"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "team": "Team B",
+    "position": "Midfielder",
+    "image": "Ресурс 1.svg",
+    "teamImage": "teamB-logo.svg"
+  },
+  {
+    "id": 3,
+    "name": "Tom Brown",
+    "team": "Team A",
+    "position": "Defender",
+    "image": "Ресурс 1.svg",
+    "teamImage": "teamA-logo.svg"
+  }
+]
