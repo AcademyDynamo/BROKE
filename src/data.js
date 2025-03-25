@@ -4,42 +4,42 @@ const footballers = [
     name: "Лионель Месси",
     position: "Нападающий",
     team: "Интер Майами",
-    teamImage: "вставь изображение n"
+    teamImage: "images/Ресурс 1.svg"
   },
   {
     id: 2,
     name: "Килиан Мбаппе",
     position: "Нападающий",
     team: "ПСЖ",
-    teamImage: "вставь изображение n"
+    teamImage: "images/Ресурс 1.svg"
   },
   {
     id: 3,
     name: "Кевин Де Брюйне",
     position: "Полузащитник",
     team: "Манчестер Сити",
-    teamImage: "вставь изображение n"
+    teamImage: "images/Ресурс 2.svg"
   }
   {
     id: 4,
     name: "Кевин Де Брюйне",
     position: "Полузащитник",
     team: "Алтай",
-    teamImage: "вставь изображение n"
+    teamImage: "images/Ресурс 2.svg"
   }
   {
     id: 5,
     name: "Кевин Де Брюйне",
     position: "Полузащитник",
     team: "Манчестер Сити",
-    teamImage: "вставь изображение n"
+    teamImage: "images/Ресурс 2.svg"
   }
   {
     id: 6,
     name: "Кевин Де Брюйне",
     position: "Полузащитник",
     team: "Алтай",
-    teamImage: "вставь изображение n"
+    teamImage: "images/Ресурс 2.svg"
   }  
 ];
 
