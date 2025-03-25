@@ -1,41 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantasy Football</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fantasy Football</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div id="pitch">
-        <img src="images/pitch 1.svg" alt="Pitch" id="pitch-image">
+  <div class="field">
+    <img src="images/pitch.svg" alt="Field" class="pitch">
+    <div class="players">
+      <!-- Иконки игроков на поле будут здесь -->
     </div>
-
-    <div class="player" id="player-1" data-player-id="1">
-        <img src="images/Group 5.svg" alt="Player 1" class="player-icon">
-    </div>
-
-    <div class="player" id="player-2" data-player-id="2">
-        <img src="images/Group 5.svg" alt="Player 2" class="player-icon">
-    </div>
-
-    <div class="player" id="player-3" data-player-id="3">
-        <img src="images/Group 5.svg" alt="Player 3" class="player-icon">
-    </div>
-
-    <div class="captain">
-        <img src="images/captain-icon.svg" alt="Captain Icon" id="captain-icon">
-    </div>
-
-    <div id="substitution">
-        <button id="substitute-btn">Substitute Player</button>
-    </div>
-
-    <div id="player-list" class="player-list">
-        <!-- List of players to replace the selected player -->
-    </div>
-
-    <script src="database.js"></script>
-    <script src="script.js"></script>
+  </div>
+  <div class="player-list">
+    <h2>Players to Replace</h2>
+    <ul id="playerList">
+    <div class="player-list">
+    <h2>Players to Replace</h2>
+    <ul id="playerList">
+    <div class="player-list">
+    <h2>Players to Replace</h2>
+    <ul id="playerList">
+      <!-- Список игроков для замены будет здесь -->
+    </ul>
+  </div>
+  <script src="js/script.js"></script>
 </body>
 </html>
