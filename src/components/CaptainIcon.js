@@ -1,14 +1,22 @@
 import React from "react";
-import "./styles.css";
 
-const CaptainIcon = ({ isActive, onClick }) => {
+const CaptainIcon = ({ players, captain, setCaptain }) => {
+  const handleSetCaptain = (player) => {
+    setCaptain(player);
+  };
+
   return (
-    <div
-      className="captain-icon"
-      onClick={onClick}
-      style={{ opacity: isActive ? 1 : 0.3 }}
-    >
-      <img src="captain-icon.svg" alt="Captain Icon" />
+    <div className="captain-icons">
+      {players.map(player => (
+        <img
+          key={player.id}
+          src="captain-icon.svg"
+          alt="Капитан"
+          className="captain-icon"
+          style={{ opacity: captain?.id === player.id ? "1" : "0.3" }}
+          onClick={() => handleSetCaptain(player)}
+        />
+      ))}
     </div>
   );
 };
