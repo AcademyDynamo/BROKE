@@ -20,7 +20,7 @@ body {
     width: 657px;
     height: 587px;
     margin: auto;
-    background: url('вставь изображения n') no-repeat center;
+    background: url('images/pitch.svg') no-repeat center;
     background-size: cover;
 }
 
