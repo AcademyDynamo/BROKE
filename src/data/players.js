@@ -3,14 +3,14 @@ const players = [
     id: 1,
     name: "Иван Иванов",
     position: "Нападающий",
-    photo: "https://example.com/images/player1.png",
+    photo: "public/images/Group 5.svg",
     team: "Красные Драконы"
   },
   {
     id: 2,
     name: "Петр Петров",
     position: "Защитник",
-    photo: "https://example.com/images/player2.png",
+    photo: "public/images/Group 5.svg",
     team: "Сибирские Волки"
   }
 ];
