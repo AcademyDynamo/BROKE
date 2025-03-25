@@ -8,7 +8,7 @@ const CaptainIcon = ({ isActive, onClick }) => {
       onClick={onClick}
       style={{ opacity: isActive ? 1 : 0.3 }}
     >
-      <img src="вставь изображения 2" alt="Captain Icon" />
+      <img src="captain-icon.svg" alt="Captain Icon" />
     </div>
   );
 };
