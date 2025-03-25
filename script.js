@@ -1,58 +1,45 @@
-document.addEventListener("DOMContentLoaded", async () => {
-    const field = document.getElementById("field");
-    const playerList = document.getElementById("player-list");
-    const playersUl = document.getElementById("players");
-
-    let players = await fetch("players.json").then(res => res.json());
-
-    // Фиксированные позиции
-    let squad = [
-        { id: 1, position: "GK" },
-        { id: 2, position: "DF" },
-        { id: 3, position: "DF" },
-        { id: 4, position: "DF" },
-        { id: 5, position: "MF" },
-        { id: 6, position: "MF" },
-        { id: 7, position: "MF" },
-        { id: 8, position: "FW" },
-        { id: 9, position: "FW" }
-    ];
-
-    // Отображение стартового состава
-    function renderField() {
-        field.innerHTML = "";
-        squad.forEach((spot, index) => {
-            let player = players.find(p => p.id === spot.id);
-            let div = document.createElement("div");
-            div.classList.add("player");
-            div.innerHTML = 
-                <img src="${player.image}" alt="${player.name}">
-                <p>${player.name}</p>
-            ;
-            div.addEventListener("click", () => openPlayerSelection(index, spot.position));
-            field.appendChild(div);
+document.addEventListener("DOMContentLoaded", function() {
+    let selectedPosition = null;
+    
+    // Загружаем данные об игроках
+    fetch("players.json")
+        .then(response => response.json())
+        .then(players => {
+            document.querySelectorAll(".position").forEach(position => {
+                position.addEventListener("click", function() {
+                    selectedPosition = this;
+                    openModal(players[this.dataset.pos]);
+                });
+            });
         });
-    }
 
-    // Открыть список игроков
-    function openPlayerSelection(index, position) {
-        playersUl.innerHTML = "";
-        let availablePlayers = players.filter(p => p.position === position);
-        availablePlayers.forEach(p => {
-            let li = document.createElement("li");
-            li.textContent = p.name;
-            li.addEventListener("click", () => replacePlayer(index, p.id));
-            playersUl.appendChild(li);
+    function openModal(players) {
+        const modal = document.querySelector(".player-modal");
+        const playerList = document.getElementById("playerList");
+        playerList.innerHTML = "";
+
+        players.forEach(player => {
+            const btn = document.createElement("button");
+            btn.innerText = player.name;
+            btn.onclick = function() {
+                selectPlayer(player);
+            };
+            playerList.appendChild(btn);
         });
-        playerList.style.display = "block";
+
+        modal.classList.remove("hidden");
     }
 
-    // Заменить игрока
-    function replacePlayer(index, newPlayerId) {
-        squad[index].id = newPlayerId;
-        playerList.style.display = "none";
-        renderField();
+    function selectPlayer(player) {
+        selectedPosition.innerHTML = <img src="${player.photo}" alt="${player.name}" width="80"><br>${player.name};
+        document.querySelector(".player-modal").classList.add("hidden");
     }
 
-    renderField();
+    document.getElementById("closeModal").addEventListener("click", function() {
+        document.querySelector(".player-modal").classList.add("hidden");
+    });
+
+    document.getElementById("confirmTeam").addEventListener("click", function() {
+        alert("Команда подтверждена!");
+    });
 });
