@@ -1,78 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Gotham:wght@700&display=swap');
+
 body {
-  background: #791617;
-  position: relative;
-  width: 414px;
-  height: 834px;
-  margin: 0;
-  overflow: hidden;
+    background: #791617;
+    position: relative;
+    width: 414px;
+    height: 834px;
+    margin: 0;
+    overflow: hidden;
+}
+
+.app {
+    text-align: center;
+    color: #fff;
+    font-family: 'Gotham', sans-serif;
 }
 
 .pitch {
-  position: absolute;
-  width: 657px;
-  height: 587px;
-  left: -122px;
-  top: 117px;
+    position: relative;
+    width: 657px;
+    height: 587px;
+    margin: auto;
+    background: url('вставь изображения n') no-repeat center;
+    background-size: cover;
 }
 
 .player-card {
-  position: absolute;
-  width: 87px;
-  height: 108px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: #D33333;
-  border-radius: 8px;
-  color: #FFFFFF;
-  font-family: 'Gotham Bold', sans-serif;
-  font-size: 10px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.player-card:hover {
-  transform: scale(1.1);
+    position: absolute;
+    width: 87px;
+    height: 108px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #D33333;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 10px;
+    cursor: pointer;
 }
 
 .captain-icon {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 18px;
-  font-weight: bold;
-  cursor: pointer;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .captain-icon.active {
-  background: #D33333;
-  color: #FFFFFF;
+    background: #FFFFFF;
+    color: #D33333;
 }
 
 .captain-icon.inactive {
-  background: rgba(217, 217, 217, 0.67);
-  color: rgba(55, 11, 11, 0.47);
-}
-
-.player-list {
-  position: absolute;
-  bottom: 50px;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  text-align: center;
-  padding: 10px;
-}
-
-.substitute {
-  cursor: pointer;
-  padding: 5px;
-}
-
-.substitute:hover {
-  background: #D33333;
+    background: rgba(217, 217, 217, 0.67);
+    color: rgba(55, 11, 11, 0.47);
 }
