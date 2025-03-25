@@ -3,36 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantasy Football</title>
+    <title>Fantasy League</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="field">
-        <img src="images/pitch.svg" alt="Football Field" id="pitch">
-
-        <!-- Игроки на поле -->
-        <div class="player" id="player-1" data-player-id="1">
-            <img src="images/group 5.svg" alt="Player" class="player-icon">
-            <img src="images/captain-icon.svg" alt="Captain" class="captain-icon">
-        </div>
-        <div class="player captain" id="player-2" data-player-id="2">
-            <img src="images/group 5.svg" alt="Player" class="player-icon">
-            <img src="images/captain-icon.svg" alt="Captain" class="captain-icon">
-        </div>
-        <!-- Добавьте еще 5 игроков по аналогии -->
+    <div class="field">
+        <div class="player-slot" id="player-1"></div>
+        <div class="player-slot" id="player-2"></div>
+        <div class="player-slot" id="player-3"></div>
+        <div class="player-slot" id="player-4"></div>
+        <div class="player-slot" id="player-5"></div>
+        <div class="player-slot" id="player-6"></div>
+        <div class="player-slot" id="player-7"></div>
     </div>
 
-    <!-- Список игроков для замены -->
-    <div id="substitution-list">
-        <h3>Выберите игрока для замены:</h3>
-        <ul>
-            <li data-substitute-id="3">Player 3 (Midfielder) - <button class="substitute-button">Заменить</button></li>
-            <li data-substitute-id="4">Player 4 (Defender) - <button class="substitute-button">Заменить</button></li>
-            <li data-substitute-id="5">Player 5 (Forward) - <button class="substitute-button">Заменить</button></li>
-        </ul>
+    <div id="player-list" class="hidden">
+        <ul id="player-options"></ul>
     </div>
 
-    <script src="footballers.js"></script>
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
