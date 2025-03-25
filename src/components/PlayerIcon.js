@@ -1,11 +1,11 @@
 import React from "react";
-import "./styles.css";
+import "../styles/styles.css";
 
 const PlayerIcon = ({ player, onClick }) => {
   return (
-    <div className="player-icon" onClick={() => onClick(player)}>
-      <img src="Group 5.svg" alt={player.name} className="player-img" />
-      <span>{player.name}</span>
+    <div className="player-icon" onClick={onClick}>
+      <img src="Group 5.svg" alt="Иконка футболиста" className="player-image" />
+      <span className="player-name">{player.name}</span>
     </div>
   );
 };
