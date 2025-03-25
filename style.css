@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#pitch {
+    position: relative;
+}
+
+.player {
+    position: absolute;
+    cursor: pointer;
+}
+
+#substitute-btn {
+    margin-top: 20px;
+}
+
+.captain img {
+    width: 50px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.captain.active img {
+    opacity: 1;
+}
+
+.player-list {
+    margin-top: 20px;
+    display: none;
+}
+
+.player-list.active {
+    display: block;
+}
+
+.player-list button {
+    margin: 5px;
+}
