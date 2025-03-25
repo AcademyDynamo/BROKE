@@ -1,36 +1,36 @@
+// Пример базы данных игроков (footballers.js)
 const footballers = [
-  {
-    id: 1,
-    name: "Player 1",
-    teamImage: "images/team1.svg",
-    position: "Forward",
-    teamInfo: "Team 1: Champions League contenders.",
-    playerImage: "images/Ресурс 1.svg"
-  },
-  {
-    id: 2,
-    name: "Player 2",
-    teamImage: "images/team2.svg",
-    position: "Midfielder",
-    teamInfo: "Team 2: Top of the league.",
-    playerImage: "images/Ресурс 1.svg"
-  },
-  {
-    id: 3,
-    name: "Player 3",
-    teamImage: "images/team3.svg",
-    position: "Defender",
-    teamInfo: "Team 3: Strong defensive lineup.",
-    playerImage: "images/Ресурс 1.svg"
-  },
-  {
-    id: 4,
-    name: "Player 4",
-    teamImage: "images/team4.svg",
-    position: "Goalkeeper",
-    teamInfo: "Team 4: Excellent goalkeeping skills.",
-    playerImage: "images/Ресурс 1.svg"
-  }
+    {
+        id: 1,
+        name: 'Player 1',
+        team: 'Team A',
+        position: 'Forward',
+        image: 'images/Ресурс 1.svg',
+        teamImage: 'images/teamA-logo.svg',
+    },
+    {
+        id: 2,
+        name: 'Player 2',
+        team: 'Team B',
+        position: 'Midfielder',
+        image: 'images/Ресурс 1.svg',
+        teamImage: 'images/teamB-logo.svg',
+    },
+    {
+        id: 3,
+        name: 'Player 3',
+        team: 'Team A',
+        position: 'Defender',
+        image: 'images/Ресурс 1.svg',
+        teamImage: 'images/teamA-logo.svg',
+    },
+    {
+        id: 4,
+        name: 'Player 4',
+        team: 'Team C',
+        position: 'Goalkeeper',
+        image: 'images/Ресурс 1.svg',
+        teamImage: 'images/teamC-logo.svg',
+    },
+    // Добавьте остальных игроков по аналогии
 ];
-
-export default footballers;
