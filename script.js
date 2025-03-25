@@ -1,45 +1,37 @@
-document.addEventListener("DOMContentLoaded", function() {
-    let selectedPosition = null;
-    
-    // Загружаем данные об игроках
-    fetch("players.json")
-        .then(response => response.json())
-        .then(players => {
-            document.querySelectorAll(".position").forEach(position => {
-                position.addEventListener("click", function() {
-                    selectedPosition = this;
-                    openModal(players[this.dataset.pos]);
-                });
-            });
-        });
+document.addEventListener("DOMContentLoaded", () => {
+    const players = [
+        { name: "Левандовски", position: "FWD" },
+        { name: "Де Брюйне", position: "MID" },
+        { name: "Ван Дейк", position: "DEF" },
+        { name: "Куртуа", position: "GK" }
+    ];
 
-    function openModal(players) {
-        const modal = document.querySelector(".player-modal");
-        const playerList = document.getElementById("playerList");
+    const playerList = document.getElementById("players");
+    const searchInput = document.getElementById("search");
+
+    function renderPlayers(filter = "") {
         playerList.innerHTML = "";
-
-        players.forEach(player => {
-            const btn = document.createElement("button");
-            btn.innerText = player.name;
-            btn.onclick = function() {
-                selectPlayer(player);
-            };
-            playerList.appendChild(btn);
-        });
-
-        modal.classList.remove("hidden");
+        players
+            .filter(player => player.name.toLowerCase().includes(filter.toLowerCase()))
+            .forEach(player => {
+                const li = document.createElement("li");
+                li.textContent = ${player.name} (${player.position});
+                li.dataset.position = player.position;
+                li.addEventListener("click", () => selectPlayer(player));
+                playerList.appendChild(li);
+            });
     }
 
     function selectPlayer(player) {
-        selectedPosition.innerHTML = <img src="${player.photo}" alt="${player.name}" width="80"><br>${player.name};
-        document.querySelector(".player-modal").classList.add("hidden");
+        const slot = document.querySelector(.player-slot[data-position="${player.position}"]);
+        if (slot) {
+            slot.textContent = player.name;
+            slot.style.backgroundColor = "#4CAF50";
+            slot.style.color = "white";
+        }
     }
 
-    document.getElementById("closeModal").addEventListener("click", function() {
-        document.querySelector(".player-modal").classList.add("hidden");
-    });
+    searchInput.addEventListener("input", () => renderPlayers(searchInput.value));
 
-    document.getElementById("confirmTeam").addEventListener("click", function() {
-        alert("Команда подтверждена!");
-    });
+    renderPlayers();
 });
