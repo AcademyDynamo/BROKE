@@ -1,20 +1,12 @@
-import React, { useState } from "react";
-import CaptainIcon from "./CaptainIcon";
+import React from "react";
 
-const PlayerCard = ({ player, isCaptain, onSetCaptain }) => {
-    const [active, setActive] = useState(false);
-
-    return (
-        <div
-            className="player-card"
-            style={{ top: player.position.top, left: player.position.left }}
-            onClick={() => setActive(!active)}
-        >
-            <img src="Group 5.svg" alt="Игрок" className="player-icon" />
-            <p className="name">{player.name}</p>
-            <CaptainIcon active={isCaptain} onClick={onSetCaptain} />
-        </div>
-    );
-};
+function PlayerCard({ player }) {
+  return (
+    <div className="player-card">
+      <div className="player-icon">Group 5.svg</div>
+      <div className="name">{player.name}</div>
+    </div>
+  );
+}
 
 export default PlayerCard;
