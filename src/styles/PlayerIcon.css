@@ -1,0 +1,16 @@
+.player-icon {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.player-icon:hover {
+  transform: scale(1.1);
+}
+
+.player-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
