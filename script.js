@@ -22,7 +22,7 @@ function renderPlayers() {
     team.forEach((player, index) => {
         const playerDiv = document.createElement("div");
         playerDiv.classList.add("player");
-        playerDiv.innerHTML = <img src="public/images/Group 5.svg" alt="${player.name}">
+        playerDiv.innerHTML = img src="public/images/Group 5.svg" alt="${player.name}"
                                <div class="captain" onclick="setCaptain(${index})"></div>;
         playerDiv.style.left = ${player.x}px;
         playerDiv.style.top = ${player.y}px;
@@ -41,7 +41,7 @@ function openSubstitutes(index) {
     subMenu.innerHTML = "";
     substitutes.forEach((sub, subIndex) => {
         const subDiv = document.createElement("div");
-        subDiv.innerHTML = <img src="public/images/Group 5.svg" alt="${sub.name}">;
+        subDiv.innerHTML = img src="public/images/Group 5.svg" alt="${sub.name}";
         subDiv.onclick = () => swapPlayers(index, subIndex);
         subMenu.appendChild(subDiv);
     });
