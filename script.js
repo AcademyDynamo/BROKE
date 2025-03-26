@@ -22,7 +22,7 @@ function renderPlayers() {
     team.forEach((player, index) => {
         const playerDiv = document.createElement("div");
         playerDiv.classList.add("player");
-        playerDiv.innerHTML = img src="public/images/Group 5.svg" alt="${player.name}"
+        playerDiv.innerHTML = <img src="public/images/Group 5.svg" alt="${player.name}">;
                                <div class="captain" onclick="setCaptain(${index})"></div>;
         playerDiv.style.left = ${player.x}px;
         playerDiv.style.top = ${player.y}px;
