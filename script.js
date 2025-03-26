@@ -22,17 +22,17 @@ function renderPlayers() {
     team.forEach((player, index) => {
         const playerDiv = document.createElement("div");
         playerDiv.classList.add("player");
-        
-        // Используйте обратные кавычки для создания шаблонной строки
+
+        // Используем шаблонную строку
         playerDiv.innerHTML = 
             <img src="public/images/Group 5.svg" alt="${player.name}">
             <div class="captain" onclick="setCaptain(${index})"></div>
         ;
-        
+
         playerDiv.style.left = ${player.x}px;
         playerDiv.style.top = ${player.y}px;
         playerDiv.onclick = () => openSubstitutes(index);
-        
+
         playersContainer.appendChild(playerDiv);
     });
 }
@@ -45,19 +45,19 @@ function setCaptain(index) {
 function openSubstitutes(index) {
     const subMenu = document.getElementById("substitutes");
     subMenu.innerHTML = "";
-    
+
     substitutes.forEach((sub, subIndex) => {
         const subDiv = document.createElement("div");
-        
-        // Используйте обратные кавычки для создания шаблонной строки
+
+        // Используем шаблонную строку
         subDiv.innerHTML = 
             <img src="public/images/Group 5.svg" alt="${sub.name}">
         ;
-        
+
         subDiv.onclick = () => swapPlayers(index, subIndex);
         subMenu.appendChild(subDiv);
     });
-    
+
     subMenu.classList.remove("hidden");
 }
 
