@@ -2,12 +2,12 @@
   {
     "id": 1,
     "name": "Игрок 1",
-    "photo": "player1.jpg"
+    "photo": "Ресурс 2.svg"
   },
   {
     "id": 2,
     "name": "Игрок 2",
-    "photo": "player2.jpg"
+    "photo": "Ресурс 1.svg"
   }
   // Добавьте других игроков сюда
 ]
