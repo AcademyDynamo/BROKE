@@ -1,15 +1,12 @@
-import React from 'react';
-import '../styles/PlayerCard.css';
+export default function PlayerCard({ player }) {
+    const playerImage = player.photo 
+        ? `./public/images/players/${player.photo}` 
+        : "./public/images/Group 5.svg";
 
-const PlayerCard = ({ player }) => {
-    return (
-        <div className="player-card">
-            <img src={player.image} alt={player.name} className="player-card-image" />
-            <div className="player-card-info">
-                <h3>{player.name}</h3>
-            </div>
+    return `
+        <div class="player-card">
+            <img src="${playerImage}" alt="${player.name}" class="player-img">
+            <span class="player-name">${player.name}</span>
         </div>
-    );
-};
-
-export default PlayerCard;
+    `;
+}
