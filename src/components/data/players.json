@@ -1,10 +1,13 @@
 [
   {
-    "name": "Лионель Месси",
-    "photo": "public/images/Ресурс 1.svg"
+    "id": 1,
+    "name": "Игрок 1",
+    "photo": "player1.jpg"
   },
   {
-    "name": "Криштиану Роналду",
-    "photo": "public/images/Ресурс 1.svg"
+    "id": 2,
+    "name": "Игрок 2",
+    "photo": "player2.jpg"
   }
+  // Добавьте других игроков сюда
 ]
