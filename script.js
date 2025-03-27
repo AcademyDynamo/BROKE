@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         // Загружаем данные об игроках с правильным путем
-        const players = await fetch("/src/data/players.json")
+        const players = await fetch("/public/data/players.json") // Обновленный путь
             .then(res => {
                 if (!res.ok) throw new Error("Failed to load players data.");
                 return res.json();
