@@ -1,0 +1,19 @@
+body {
+  font-family: sans-serif;
+}
+
+.fixture-card,
+.player-card,
+.team-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.player-card img,
+.team-card img,
+.fixture-card img {
+  margin-right: 10px;
+}
