@@ -3,7 +3,6 @@ let teamPositions = {
     'Goalkeeper': null,
     'Defender1': null,
     'Defender2': null,
-    'Defender3': null,
     'Midfielder1': null,
     'Midfielder2': null,
     'Forward1': null,
@@ -103,7 +102,6 @@ function updatePositionButton(position, player) {
               <div class="text-xs text-center font-medium truncate w-full">
                 ${player.firstName.charAt(0)}. ${player.lastName}
               </div>
-              <div class="text-[10px] text-gray-500 truncate w-full">${player.club}</div>
             </div>
         `;
     } else {
@@ -135,42 +133,3 @@ function setupFooterNavigation() {
 
 // Open Rules Modal
 function openRulesModal() {
-    const modal = document.getElementById('rulesModal');
-    modal.classList.remove('hidden');
-}
-
-// Close Rules Modal
-function closeRulesModal() {
-    const modal = document.getElementById('rulesModal');
-    modal.classList.add('hidden');
-}
-
-// Open Leaderboard Modal
-function openLeaderboardModal() {
-    const modal = document.getElementById('leaderboardModal');
-    modal.classList.remove('hidden');
-}
-
-// Close Leaderboard Modal
-function closeLeaderboardModal() {
-    const modal = document.getElementById('leaderboardModal');
-    modal.classList.add('hidden');
-}
-
-// Populate leaderboard table
-function populateLeaderboard() {
-    const leaderboardBody = document.getElementById('leaderboardBody');
-    leaderboardBody.innerHTML = ''; // Clear existing rows
-    leaderboardData.forEach(entry => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td class="py-2">${entry.rank}</td>
-            <td class="py-2">${entry.player}</td>
-            <td class="py-2 text-right">${entry.points}</td>
-        `;
-        leaderboardBody.appendChild(row);
-    });
-}
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', init);
