@@ -45,6 +45,27 @@
     border-radius: 10px;
 }
 
+/* Паттерны для кнопок позиций */
+.position-btn[data-position="Goalkeeper"] {
+    background-image: url('assets/pattern.png'); /* Узор для вратаря */
+    background-size: cover;
+}
+
+.position-btn[data-position^="Defender"] {
+    background-image: url('assets/pattern.png'); /* Узор для вратаря */
+    background-size: cover;
+}
+
+.position-btn[data-position^="Midfielder"] {
+    background-image: url('assets/pattern.png'); /* Узор для вратаря */
+    background-size: cover;
+}
+
+.position-btn[data-position^="Forward"] {
+    background-image: url('assets/pattern.png'); /* Узор для вратаря */
+    background-size: cover;
+}
+
 /* Player Selection Modal */
 #playerModal {
     backdrop-filter: blur(2px);
@@ -80,6 +101,64 @@
     border-radius: 9999px;
     object-fit: cover;
     margin-right: 0.75rem;
+}
+
+/* Rules and Leaderboard Modals */
+#rulesModal, #leaderboardModal {
+    backdrop-filter: blur(2px);
+    z-index: 50;
+}
+
+#rulesModal .modal-content,
+#leaderboardModal .modal-content {
+    background: white;
+    border-radius: 0.5rem;
+    max-height: 80vh;
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+#rulesModal h2,
+#leaderboardModal h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#rulesModal ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+#leaderboardModal table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#leaderboardModal th,
+#leaderboardModal td {
+    padding: 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+#leaderboardModal th {
+    font-weight: bold;
+}
+
+/* Close Button for Modals */
+button.close-modal {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #4b5563;
+}
+
+button.close-modal:hover {
+    color: #1e293b;
 }
 
 /* Responsive Adjustments */
