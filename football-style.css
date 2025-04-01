@@ -40,11 +40,6 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Усиленная тень при наведении */
 }
 
-.position-btn i {
-    color: #4b5563; /* Цвет иконки */
-    transition: all 0.2s ease;
-}
-
 .position-btn img {
     width: 100%; /* Изображение занимает всю ширину */
     height: 100%; /* Изображение занимает всю высоту */
