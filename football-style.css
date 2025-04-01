@@ -26,7 +26,7 @@
     transition: all 0.3s ease;
     border: 2px solid #e5e7eb; /* Граница */
     cursor: pointer;
-    border-radius: 5px; /* Закругленные углы */
+    border-radius: 12px; /* Закругленные углы */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
     background: white; /* Белый фон */
     width: 10rem; /* Ширина прямоугольной кнопки */
@@ -46,9 +46,10 @@
 }
 
 .position-btn img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100%; /* Изображение занимает всю ширину */
+    height: 100%; /* Изображение занимает всю высоту */
+    object-fit: cover; /* Корректное отображение фото */
+    border-radius: 10px; /* Закругленные углы фото */
 }
 
 /* Club Logo */
