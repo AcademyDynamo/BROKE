@@ -11,8 +11,18 @@
 <body class="bg-green-50 min-h-screen p-4">
   <header class="mb-6 text-center">
     <h1 class="text-2xl font-bold text-blue-800">Fantasy Football Team Creator</h1>
+    <button id="rulesButton" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      <i class="fas fa-info-circle mr-2"></i>Rules
+    </button>
   </header>
-  <div class="football-field relative bg-green-600 rounded-lg p-4 mb-6 h-96">
+
+  <!-- Field Background Upload -->
+  <div class="mb-4 text-center">
+    <label class="block text-sm font-medium text-gray-700">assets/field.svg:</label>
+    <input type="file" id="fieldBackgroundInput" accept="image/*" class="mt-1">
+  </div>
+
+  <div class="football-field relative bg-green-600 rounded-lg p-4 mb-6 h-96" id="footballField">
     <!-- Field lines -->
     <div class="field-lines absolute inset-0 border-4 border-white rounded-lg"></div>
     <!-- Position buttons -->
@@ -49,6 +59,7 @@
       <i class="fas fa-plus text-2xl"></i>
     </button>
   </div>
+
   <!-- Player Selection Modal -->
   <div id="playerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
     <div class="bg-white rounded-lg w-full max-w-md max-h-[80vh] overflow-hidden">
@@ -63,6 +74,26 @@
       </div>
     </div>
   </div>
+
+  <!-- Rules Modal -->
+  <div id="rulesModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-lg w-full max-w-md p-6">
+      <h2 class="text-xl font-bold mb-4">Rules</h2>
+      <p class="text-gray-700">
+        Points are awarded for:
+        <ul class="list-disc pl-6">
+          <li>Goals scored</li>
+          <li>Assists</li>
+          <li>Clean sheets (for defenders and goalkeepers)</li>
+          <li>Saves (for goalkeepers)</li>
+        </ul>
+      </p>
+      <button id="closeRulesModal" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        Close
+      </button>
+    </div>
+  </div>
+
   <script src="football-script.js"></script>
 </body>
 </html>
