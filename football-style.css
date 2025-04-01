@@ -4,7 +4,6 @@
     background-size: cover;
     position: relative;
     overflow: hidden;
-    border-radius: 0.5rem;
     height: 700px; /* Увеличенная высота поля */
     width: 100%;
     max-width: 48rem;
