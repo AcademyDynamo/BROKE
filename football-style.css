@@ -11,13 +11,6 @@
     margin: 0 auto;
 }
 
-.field-lines {
-    border: 4px dashed white;
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
-
 /* Position Buttons */
 .position-btn {
     display: flex;
