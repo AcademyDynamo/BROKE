@@ -11,55 +11,53 @@
 </head>
 <body class="bg-green-50 min-h-screen p-4">
   <header class="mb-6 text-center">
-    <h1 class="text-2xl font-bold text-blue-800">Fantasy YFL</h1>
+    <h1 class="text-2xl font-bold text-blue-800">Fantasy Football Team Creator</h1>
   </header>
 
-  <main class="flex justify-center">
-    <div class="football-field relative bg-cover bg-center rounded-lg p-4 mb-6 h-128 w-full max-w-[48rem]">
-      <!-- Field lines -->
-      <div class="field-lines absolute inset-0 border-4 border-white rounded-lg"></div>
-      <!-- Position buttons -->
-      <button class="position-btn absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-lg w-16 h-16 overflow-hidden"
-              data-position="Goalkeeper">
-        <i class="fas fa-plus text-2xl"></i>
-      </button>
-      <button class="position-btn absolute bottom-20 left-1/4 bg-white rounded-lg w-16 h-16 overflow-hidden"
-              data-position="Defender1">
-        <i class="fas fa-plus text-2xl"></i>
-      </button>
-      <button class="position-btn absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-white rounded-lg w-16 h-16 overflow-hidden"
-              data-position="Defender2">
-        <i class="fas fa-plus text-2xl"></i>
-      </button>
-      <button class="position-btn absolute bottom-20 left-3/4 bg-white rounded-lg w-16 h-16 overflow-hidden"
-              data-position="Defender3">
-        <i class="fas fa-plus text-2xl"></i>
-      </button>
-      <button class="position-btn absolute bottom-40 left-1/3 bg-white rounded-lg w-16 h-16 overflow-hidden"
-              data-position="Midfielder1">
-        <i class="fas fa-plus text-2xl"></i>
-      </button>
-      <button class="position-btn absolute bottom-40 left-2/3 bg-white rounded-lg w-16 h-16 overflow-hidden"
-              data-position="Midfielder2">
-        <i class="fas fa-plus text-2xl"></i>
-      </button>
-      <button class="position-btn absolute bottom-60 left-1/4 bg-white rounded-lg w-16 h-16 overflow-hidden"
-              data-position="Forward1">
-        <i class="fas fa-plus text-2xl"></i>
-      </button>
-      <button class="position-btn absolute bottom-60 left-3/4 bg-white rounded-lg w-16 h-16 overflow-hidden"
-              data-position="Forward2">
-        <i class="fas fa-plus text-2xl"></i>
-      </button>
-    </div>
-  </main>
+  <div class="football-field relative bg-green-600 rounded-lg p-4 mb-6 h-96">
+    <!-- Field lines -->
+    <div class="field-lines absolute inset-0 border-4 border-white rounded-lg"></div>
+    <!-- Position buttons -->
+    <button class="position-btn absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-full w-16 h-16 overflow-hidden"
+            data-position="Goalkeeper">
+      <i class="fas fa-plus text-2xl"></i>
+    </button>
+    <button class="position-btn absolute bottom-20 left-1/4 bg-white rounded-full w-16 h-16 overflow-hidden"
+            data-position="Defender1">
+      <i class="fas fa-plus text-2xl"></i>
+    </button>
+    <button class="position-btn absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-white rounded-full w-16 h-16 overflow-hidden"
+            data-position="Defender2">
+      <i class="fas fa-plus text-2xl"></i>
+    </button>
+    <button class="position-btn absolute bottom-20 left-3/4 bg-white rounded-full w-16 h-16 overflow-hidden"
+            data-position="Defender3">
+      <i class="fas fa-plus text-2xl"></i>
+    </button>
+    <button class="position-btn absolute bottom-40 left-1/3 bg-white rounded-full w-16 h-16 overflow-hidden"
+            data-position="Midfielder1">
+      <i class="fas fa-plus text-2xl"></i>
+    </button>
+    <button class="position-btn absolute bottom-40 left-2/3 bg-white rounded-full w-16 h-16 overflow-hidden"
+            data-position="Midfielder2">
+      <i class="fas fa-plus text-2xl"></i>
+    </button>
+    <button class="position-btn absolute bottom-60 left-1/4 bg-white rounded-full w-16 h-16 overflow-hidden"
+            data-position="Forward1">
+      <i class="fas fa-plus text-2xl"></i>
+    </button>
+    <button class="position-btn absolute bottom-60 left-3/4 bg-white rounded-full w-16 h-16 overflow-hidden"
+            data-position="Forward2">
+      <i class="fas fa-plus text-2xl"></i>
+    </button>
+  </div>
 
   <!-- Player Selection Modal -->
   <div id="playerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
     <div class="bg-white rounded-lg w-full max-w-md max-h-[80vh] overflow-hidden">
       <div class="flex justify-between items-center p-4 border-b">
         <h2 class="text-xl font-bold">Select Player</h2>
-        <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+        <button id="closePlayerModal" class="text-gray-500 hover:text-gray-700">
           <i class="fas fa-times"></i>
         </button>
       </div>
@@ -68,59 +66,62 @@
       </div>
     </div>
   </div>
-</body>
+
+  <!-- Rules Modal -->
+  <div id="rulesModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-lg w-full max-w-md p-6">
+      <div class="flex justify-between items-center pb-4 border-b">
+        <h2 class="text-xl font-bold">Правила</h2>
+        <button id="closeRulesModal" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <p class="text-gray-700 mt-4">
+        Баллы начисляются за:
+        <ul class="list-disc pl-6">
+          <li>Голы (+5 баллов)</li>
+          <li>Ассисты (+3 балла)</li>
+          <li>Чистые матчи (для защитников и вратарей) (+4 балла)</li>
+          <li>Сэйвы (для вратарей) (+1 балл за каждый сэйв)</li>
+          <li>Желтые карточки (-1 балл)</li>
+          <li>Красные карточки (-3 балла)</li>
+        </ul>
+      </p>
+    </div>
+  </div>
+
+  <!-- Leaderboard Modal -->
+  <div id="leaderboardModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-lg w-full max-w-md p-6">
+      <div class="flex justify-between items-center pb-4 border-b">
+        <h2 class="text-xl font-bold">Таблица лидеров</h2>
+        <button id="closeLeaderboardModal" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <table class="w-full text-sm text-left">
+        <thead>
+          <tr class="border-b">
+            <th class="py-2">Место</th>
+            <th class="py-2">Игрок</th>
+            <th class="py-2 text-right">Баллы</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody">
+          <!-- Leaderboard rows will be populated here -->
+        </tbody>
+      </table>
+    </div>
+  </div>
 
   <!-- Footer Navigation -->
-  <footer class="bg-blue-800 text-white p-4 mt-6 fixed bottom-0 w-full">
+  <footer class="bg-blue-800 text-white p-4 fixed bottom-0 w-full">
     <nav class="flex justify-around">
       <a href="#" id="createTeamButton" class="text-white hover:text-teal-400">Создать команду</a>
       <a href="#" id="rulesButton" class="text-white hover:text-teal-400">Правила</a>
       <a href="#" id="leaderboardButton" class="text-white hover:text-teal-400">Лидеры</a>
     </nav>
   </footer>
-
-<!-- Rules Modal -->
-<div id="rulesModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
-    <div class="bg-white rounded-lg w-full max-w-md p-6 relative">
-        <button id="closeRulesModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
-            <i class="fas fa-times text-xl"></i>
-        </button>
-        <h2 class="text-xl font-bold mb-4">Правила</h2>
-        <p class="text-gray-700">
-            Баллы начисляются за:
-            <ul class="list-disc pl-6">
-                <li>Голы (+5 баллов)</li>
-                <li>Ассисты (+3 балла)</li>
-                <li>Чистые матчи (для защитников и вратарей) (+4 балла)</li>
-                <li>Сэйвы (для вратарей) (+1 балл за каждый сэйв)</li>
-                <li>Желтые карточки (-1 балл)</li>
-                <li>Красные карточки (-3 балла)</li>
-            </ul>
-        </p>
-    </div>
-</div>
-
-<!-- Leaderboard Modal -->
-<div id="leaderboardModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
-    <div class="bg-white rounded-lg w-full max-w-md p-6 relative">
-        <button id="closeLeaderboardModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
-            <i class="fas fa-times text-xl"></i>
-        </button>
-        <h2 class="text-xl font-bold mb-4">Таблица лидеров</h2>
-        <table class="w-full text-sm text-left">
-            <thead>
-                <tr class="border-b">
-                    <th class="py-2">Место</th>
-                    <th class="py-2">Игрок</th>
-                    <th class="py-2 text-right">Баллы</th>
-                </tr>
-            </thead>
-            <tbody id="leaderboardBody">
-                <!-- Leaderboard rows will be populated here -->
-            </tbody>
-        </table>
-    </div>
-</div>
 
   <script src="football-script.js"></script>
 </body>
