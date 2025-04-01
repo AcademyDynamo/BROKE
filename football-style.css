@@ -78,3 +78,42 @@
     backdrop-filter: blur(2px);
     z-index: 50;
 }
+/* Navigation */
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #4ade80;
+  border-bottom: 2px solid #4ade80;
+}
+
+/* Sidebar */
+aside {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+}
+
+/* Leaderboard */
+#leaderboardBody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+#leaderboardBody td, #leaderboardBody th {
+  padding: 0.5rem;
+}
+
+#leaderboardBody th {
+  font-weight: bold;
+  color: #4b5563;
+}
