@@ -1,9 +1,9 @@
 /* Football Field Styling */
 .football-field {
-    background: linear-gradient(to bottom, #16a34a, #22c55e, #16a34a); /* Градиент зеленого цвета */
+    background: linear-gradient(to bottom, #16a34a, #22c55e, #16a34a);
     position: relative;
     overflow: hidden;
-    border-radius: 0.5rem; /* Закругленные углы */
+    border-radius: 0.5rem;
     height: 24rem; /* Высота поля */
     width: 100%; /* Ширина поля */
     max-width: 48rem; /* Максимальная ширина поля */
@@ -11,11 +11,11 @@
 }
 
 .field-lines {
-    border: 4px dashed white; /* Линии поля */
+    border: 4px dashed white;
     position: absolute;
     inset: 0;
     pointer-events: none;
-    border-radius: 0.5rem; /* Закругленные углы линий */
+    border-radius: 0.5rem;
 }
 
 /* Position Buttons */
@@ -24,23 +24,23 @@
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
-    border: 2px solid #e5e7eb; /* Светлая граница */
+    border: 2px solid #e5e7eb;
     cursor: pointer;
-    border-radius: 12px; /* Закругленные углы */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень */
-    background: white; /* Белый фон */
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background: white;
     width: 4rem; /* Ширина кнопки */
     height: 4rem; /* Высота кнопки */
     position: absolute; /* Абсолютное позиционирование */
 }
 
 .position-btn:hover {
-    transform: scale(1.05); /* Увеличение при наведении */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Усиленная тень */
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .position-btn i {
-    color: #4b5563; /* Цвет иконки */
+    color: #4b5563;
     transition: all 0.2s ease;
 }
 
