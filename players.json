@@ -1,0 +1,49 @@
+{{
+  "players": [
+    {
+      "id": 1,
+      "firstName": "Kylian",
+      "lastName": "Mbappé",
+      "position": "Forward",
+      "club": "Paris Saint-Germain",
+      "playerPhoto": "assets/clubs/BAR.png",
+      "clubLogo": "assets/players/refresh-icon.png"
+    },
+    {
+      "id": 2,
+      "firstName": "Lionel",
+      "lastName": "Messi",
+      "position": "Forward",
+      "club": "Inter Miami",
+      "playerPhoto": "assets/clubs/BAR.png",
+      "clubLogo": "assets/players/refresh-icon.png"
+    },
+    {
+      "id": 3,
+      "firstName": "Kevin",
+      "lastName": "De Bruyne",
+      "position": "Midfielder",
+      "club": "Manchester City",
+      "playerPhoto": "assets/clubs/BAR.png",
+      "clubLogo": "assets/players/refresh-icon.png"
+    },
+    {
+      "id": 4,
+      "firstName": "Virgil",
+      "lastName": "van Dijk",
+      "position": "Defender",
+      "club": "Liverpool",
+      "playerPhoto": "assets/clubs/BAR.png",
+      "clubLogo": "assets/players/refresh-icon.png"
+    },
+    {
+      "id": 5,
+      "firstName": "Thibaut",
+      "lastName": "Courtois",
+      "position": "Goalkeeper",
+      "club": "Real Madrid",
+      "playerPhoto": "assets/clubs/BAR.pngrefresh-icon.png",
+      "clubLogo": "assets/players/refresh-icon.png"
+    }
+  ]
+}
