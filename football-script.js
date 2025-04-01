@@ -1,10 +1,8 @@
-// Football Team Creator - Core Functionality
 let players = [];
 let teamPositions = {
     'Goalkeeper': null,
     'Defender1': null,
     'Defender2': null,
-    'Defender3': null,
     'Midfielder1': null,
     'Midfielder2': null,
     'Forward1': null,
