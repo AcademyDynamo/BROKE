@@ -25,7 +25,6 @@ async function loadPlayers() {
 async function init() {
     await loadPlayers();
     setupPositionButtons();
-    setupFooterNavigation();
 }
 
 // Set up position button click handlers
@@ -89,11 +88,12 @@ function updatePositionButton(position, player) {
     if (player) {
         btn.innerHTML = `
             <div class="w-full h-full flex flex-col items-center justify-center p-1">
-              <img src="${player.playerPhoto}" class="w-10 h-10 rounded-lg mb-1 object-cover">
-              <div class="text-xs text-center font-medium truncate w-full">
-                ${player.firstName.charAt(0)}. ${player.lastName}
-              </div>
+                <img src="${player.playerPhoto}" class="w-10 h-10 rounded-lg mb-1 object-cover">
+                <div class="text-xs text-center font-medium truncate w-full">
+                    ${player.firstName.charAt(0)}. ${player.lastName}
+                </div>
             </div>
+            <img src="${player.clubLogo}" class="club-logo absolute top-1 right-1 w-6 h-6 rounded-full border border-white">
         `;
     } else {
         btn.innerHTML = '<i class="fas fa-plus text-2xl"></i>';
@@ -107,84 +107,6 @@ document.addEventListener('click', (e) => {
         modal.classList.add('hidden');
     }
 });
-
-// Setup footer navigation
-function setupFooterNavigation() {
-    const rulesButton = document.getElementById('rulesButton');
-    const leaderboardButton = document.getElementById('leaderboardButton');
-
-    rulesButton.addEventListener('click', () => {
-        openRulesModal();
-    });
-
-    leaderboardButton.addEventListener('click', () => {
-        openLeaderboardModal();
-    });
-
-    // Close modals when clicking the close button
-    document.getElementById('closeRulesModal').addEventListener('click', closeRulesModal);
-    document.getElementById('closeLeaderboardModal').addEventListener('click', closeLeaderboardModal);
-
-    // Close modals when clicking outside the modal content
-    document.addEventListener('click', (e) => {
-        const rulesModal = document.getElementById('rulesModal');
-        const leaderboardModal = document.getElementById('leaderboardModal');
-
-        if (e.target === rulesModal) {
-            closeRulesModal();
-        }
-
-        if (e.target === leaderboardModal) {
-            closeLeaderboardModal();
-        }
-    });
-}
-
-// Open Rules Modal
-function openRulesModal() {
-    const modal = document.getElementById('rulesModal');
-    modal.classList.remove('hidden');
-}
-
-// Close Rules Modal
-function closeRulesModal() {
-    const modal = document.getElementById('rulesModal');
-    modal.classList.add('hidden');
-}
-
-// Open Leaderboard Modal
-function openLeaderboardModal() {
-    const modal = document.getElementById('leaderboardModal');
-    modal.classList.remove('hidden');
-}
-
-// Close Leaderboard Modal
-function closeLeaderboardModal() {
-    const modal = document.getElementById('leaderboardModal');
-    modal.classList.add('hidden');
-}
-
-// Populate leaderboard table
-function populateLeaderboard() {
-    const leaderboardBody = document.getElementById('leaderboardBody');
-    leaderboardBody.innerHTML = ''; // Clear existing rows
-    const leaderboardData = [
-        { rank: 1, player: "User1", points: 150 },
-        { rank: 2, player: "User2", points: 140 },
-        { rank: 3, player: "User3", points: 130 },
-        { rank: 4, player: "User4", points: 120 },
-        { rank: 5, player: "User5", points: 110 }
-    ];
-    leaderboardData.forEach(entry => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td class="py-2">${entry.rank}</td>
-            <td class="py-2">${entry.player}</td>
-            <td class="py-2 text-right">${entry.points}</td>
-        `;
-        leaderboardBody.appendChild(row);
-    });
-}
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', init);
