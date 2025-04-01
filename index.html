@@ -18,42 +18,58 @@
   <!-- Main Content -->
   <main class="flex flex-col md:flex-row gap-4">
     <!-- Football Field -->
-     <div class="football-field relative bg-green-600 rounded-lg p-4 mb-6 h-96">
-    <!-- Field lines -->
-    <div class="field-lines absolute inset-0 border-4 border-white rounded-lg"></div>
-    <!-- Position buttons -->
-    <button class="position-btn absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-lg w-16 h-16 overflow-hidden"
-            data-position="Goalkeeper">
-      <i class="fas fa-plus text-2xl"></i>
-    </button>
-    <button class="position-btn absolute bottom-20 left-1/4 bg-white rounded-lg w-16 h-16 overflow-hidden"
-            data-position="Defender1">
-      <i class="fas fa-plus text-2xl"></i>
-    </button>
-    <button class="position-btn absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-white rounded-lg w-16 h-16 overflow-hidden"
-            data-position="Defender2">
-      <i class="fas fa-plus text-2xl"></i>
-    </button>
-    <button class="position-btn absolute bottom-20 left-3/4 bg-white rounded-lg w-16 h-16 overflow-hidden"
-            data-position="Defender3">
-      <i class="fas fa-plus text-2xl"></i>
-    </button>
-    <button class="position-btn absolute bottom-40 left-1/3 bg-white rounded-lg w-16 h-16 overflow-hidden"
-            data-position="Midfielder1">
-      <i class="fas fa-plus text-2xl"></i>
-    </button>
-    <button class="position-btn absolute bottom-40 left-2/3 bg-white rounded-lg w-16 h-16 overflow-hidden"
-            data-position="Midfielder2">
-      <i class="fas fa-plus text-2xl"></i>
-    </button>
-    <button class="position-btn absolute bottom-60 left-1/4 bg-white rounded-lg w-16 h-16 overflow-hidden"
-            data-position="Forward1">
-      <i class="fas fa-plus text-2xl"></i>
-    </button>
-    <button class="position-btn absolute bottom-60 left-3/4 bg-white rounded-lg w-16 h-16 overflow-hidden"
-            data-position="Forward2">
-      <i class="fas fa-plus text-2xl"></i>
-    </button>
+    <div class="football-field relative bg-green-600 rounded-lg p-4 mb-6 h-96">
+      <!-- Field lines -->
+      <div class="field-lines absolute inset-0 border-4 border-white rounded-lg"></div>
+      <!-- Position buttons -->
+      <button class="position-btn absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-lg w-16 h-16 overflow-hidden"
+              data-position="Goalkeeper">
+        <i class="fas fa-plus text-2xl"></i>
+      </button>
+      <button class="position-btn absolute bottom-20 left-1/4 bg-white rounded-lg w-16 h-16 overflow-hidden"
+              data-position="Defender1">
+        <i class="fas fa-plus text-2xl"></i>
+      </button>
+      <button class="position-btn absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-white rounded-lg w-16 h-16 overflow-hidden"
+              data-position="Defender2">
+        <i class="fas fa-plus text-2xl"></i>
+      </button>
+      <button class="position-btn absolute bottom-20 left-3/4 bg-white rounded-lg w-16 h-16 overflow-hidden"
+              data-position="Defender3">
+        <i class="fas fa-plus text-2xl"></i>
+      </button>
+      <button class="position-btn absolute bottom-40 left-1/3 bg-white rounded-lg w-16 h-16 overflow-hidden"
+              data-position="Midfielder1">
+        <i class="fas fa-plus text-2xl"></i>
+      </button>
+      <button class="position-btn absolute bottom-40 left-2/3 bg-white rounded-lg w-16 h-16 overflow-hidden"
+              data-position="Midfielder2">
+        <i class="fas fa-plus text-2xl"></i>
+      </button>
+      <button class="position-btn absolute bottom-60 left-1/4 bg-white rounded-lg w-16 h-16 overflow-hidden"
+              data-position="Forward1">
+        <i class="fas fa-plus text-2xl"></i>
+      </button>
+      <button class="position-btn absolute bottom-60 left-3/4 bg-white rounded-lg w-16 h-16 overflow-hidden"
+              data-position="Forward2">
+        <i class="fas fa-plus text-2xl"></i>
+      </button>
+    </div>
+  </main>
+
+  <!-- Player Selection Modal -->
+  <div id="playerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-lg w-full max-w-md max-h-[80vh] overflow-hidden">
+      <div class="flex justify-between items-center p-4 border-b">
+        <h2 class="text-xl font-bold">Select Player</h2>
+        <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div id="playerList" class="overflow-y-auto">
+        <!-- Players will be listed here -->
+      </div>
+    </div>
   </div>
   </main>
 
