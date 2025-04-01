@@ -1,14 +1,23 @@
-// Football Team Creator - Core Functionality
 let players = [];
 let teamPositions = {
     'Goalkeeper': null,
     'Defender1': null,
     'Defender2': null,
+    'Defender3': null,
     'Midfielder1': null,
     'Midfielder2': null,
     'Forward1': null,
     'Forward2': null
 };
+
+// Sample leaderboard data
+const leaderboardData = [
+    { rank: 1, player: "User1", points: 150 },
+    { rank: 2, player: "User2", points: 140 },
+    { rank: 3, player: "User3", points: 130 },
+    { rank: 4, player: "User4", points: 120 },
+    { rank: 5, player: "User5", points: 110 }
+];
 
 // Load players from JSON
 async function loadPlayers() {
@@ -26,6 +35,7 @@ async function init() {
     await loadPlayers();
     setupPositionButtons();
     setupFooterNavigation();
+    populateLeaderboard(); // Populate leaderboard on load
 }
 
 // Set up position button click handlers
@@ -150,4 +160,16 @@ function closeLeaderboardModal() {
 function populateLeaderboard() {
     const leaderboardBody = document.getElementById('leaderboardBody');
     leaderboardBody.innerHTML = ''; // Clear existing rows
-    const
+    leaderboardData.forEach(entry => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td class="py-2">${entry.rank}</td>
+            <td class="py-2">${entry.player}</td>
+            <td class="py-2 text-right">${entry.points}</td>
+        `;
+        leaderboardBody.appendChild(row);
+    });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', init);
