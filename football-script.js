@@ -27,6 +27,21 @@ async function init() {
     setupPositionButtons();
 }
 
+function updatePositionButton(position, player) {
+    const container = document.querySelector(`.position-container [data-position="${position}"]`);
+    const playerName = container.nextElementSibling;
+
+    if (player) {
+        container.innerHTML = `
+            <img src="${player.playerPhoto}" class="w-full h-full object-cover rounded-lg">
+        `;
+        playerName.textContent = `${player.firstName.charAt(0)}. ${player.lastName}`;
+    } else {
+        container.innerHTML = '<i class="fas fa-plus text-2xl"></i>';
+        playerName.textContent = 'Выберите игрока';
+    }
+}
+
 // Set up position button click handlers
 function setupPositionButtons() {
     document.querySelectorAll('.position-btn').forEach(btn => {
