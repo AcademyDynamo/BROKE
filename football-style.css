@@ -21,9 +21,11 @@
     transition: all 0.2s ease;
     border: 2px solid #e5e7eb;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 12px; /* Закругленные углы */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background: white;
+    width: 4rem; /* Ширина кнопки */
+    height: 4rem; /* Высота кнопки */
 }
 
 .position-btn:hover {
@@ -43,8 +45,8 @@
     border-radius: 10px;
 }
 
-/* Modals */
-#playerModal, #rulesModal, #leaderboardModal {
+/* Player Selection Modal */
+#playerModal {
     backdrop-filter: blur(2px);
     z-index: 50;
 }
@@ -78,37 +80,6 @@
     border-radius: 9999px;
     object-fit: cover;
     margin-right: 0.75rem;
-}
-
-/* Leaderboard Styling */
-#leaderboardBody tr:nth-child(even) {
-    background-color: #f9fafb;
-}
-
-#leaderboardBody td, #leaderboardBody th {
-    padding: 0.5rem;
-}
-
-#leaderboardBody th {
-    font-weight: bold;
-    color: #4b5563;
-}
-
-/* Footer Navigation */
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-footer nav a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-footer nav a:hover {
-    color: #4ade80;
 }
 
 /* Responsive Adjustments */
