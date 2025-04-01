@@ -5,7 +5,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 0.5rem;
-    height: 96vh; /* Увеличим высоту для лучшего отображения */
+    height: 96vh; /* Увеличим высоту для лучшего отображения фона */
 }
 
 .field-lines {
@@ -45,18 +45,41 @@
     border-radius: 10px;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 640px) {
-    .position-btn {
-        width: 14vw;
-        height: 14vw;
-        min-width: 3rem;
-        min-height: 3rem;
-    }
+/* Modals */
+#playerModal, #rulesModal, #leaderboardModal {
+    backdrop-filter: blur(2px);
+    z-index: 50;
+}
 
-    .football-field {
-        height: 80vw;
-    }
+.modal-content {
+    background: white;
+    border-radius: 0.5rem;
+    max-height: 80vh;
+    overflow: hidden;
+}
+
+#playerList {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.player-item {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.player-item:hover {
+    background-color: #f3f4f6;
+}
+
+.player-item img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    object-fit: cover;
+    margin-right: 0.75rem;
 }
 
 /* Leaderboard Styling */
@@ -73,47 +96,33 @@
     color: #4b5563;
 }
 
-/* Rules Modal */
-#rulesModal {
-    backdrop-filter: blur(2px);
-    z-index: 50;
-}
-/* Navigation */
-nav ul {
-  list-style: none;
-  padding: 0;
+/* Footer Navigation */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
-nav ul li a {
-  color: #ccc;
-  text-decoration: none;
-  transition: color 0.2s ease, border-color 0.2s ease;
+footer nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-  color: #4ade80;
-  border-bottom: 2px solid #4ade80;
+footer nav a:hover {
+    color: #4ade80;
 }
 
-/* Sidebar */
-aside {
-  background: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-}
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .position-btn {
+        width: 14vw;
+        height: 14vw;
+        min-width: 3rem;
+        min-height: 3rem;
+    }
 
-/* Leaderboard */
-#leaderboardBody tr:nth-child(even) {
-  background-color: #f9fafb;
-}
-
-#leaderboardBody td, #leaderboardBody th {
-  padding: 0.5rem;
-}
-
-#leaderboardBody th {
-  font-weight: bold;
-  color: #4b5563;
+    .football-field {
+        height: 80vw;
+    }
 }
