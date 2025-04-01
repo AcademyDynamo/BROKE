@@ -25,6 +25,7 @@ async function loadPlayers() {
 async function init() {
     await loadPlayers();
     setupPositionButtons();
+    setupFooterNavigation();
 }
 
 // Set up position button click handlers
@@ -88,12 +89,11 @@ function updatePositionButton(position, player) {
     if (player) {
         btn.innerHTML = `
             <div class="w-full h-full flex flex-col items-center justify-center p-1">
-                <img src="${player.playerPhoto}" class="w-10 h-10 rounded-lg mb-1 object-cover">
-                <div class="text-xs text-center font-medium truncate w-full">
-                    ${player.firstName.charAt(0)}. ${player.lastName}
-                </div>
+              <img src="${player.playerPhoto}" class="w-10 h-10 rounded-lg mb-1 object-cover">
+              <div class="text-xs text-center font-medium truncate w-full">
+                ${player.firstName.charAt(0)}. ${player.lastName}
+              </div>
             </div>
-            <img src="${player.clubLogo}" class="club-logo absolute top-1 right-1 w-6 h-6 rounded-full border border-white">
         `;
     } else {
         btn.innerHTML = '<i class="fas fa-plus text-2xl"></i>';
