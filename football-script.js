@@ -9,17 +9,16 @@ let teamPositions = {
     'Forward1': null,
     'Forward2': null
 };
+let captainPosition = null;
 
 // Load players from JSON
 async function loadPlayers() {
     try {
         const response = await fetch('players.json');
-        if (!response.ok) throw new Error('Failed to load players');
         players = (await response.json()).players;
         console.log('Players loaded:', players.length);
     } catch (error) {
         console.error('Error loading players:', error);
-        alert('Failed to load player data. Please check your internet connection.');
     }
 }
 
@@ -27,6 +26,8 @@ async function loadPlayers() {
 async function init() {
     await loadPlayers();
     setupPositionButtons();
+    setupRulesButton();
+    setupFieldBackgroundUpload();
 }
 
 // Set up position button click handlers
@@ -94,10 +95,34 @@ function updatePositionButton(position, player) {
               <div class="text-xs text-center font-medium truncate w-full">
                 ${player.firstName.charAt(0)}. ${player.lastName}
               </div>
+              <div class="text-[10px] text-gray-500 truncate w-full">${player.club}</div>
             </div>
         `;
+        // Add captain icon toggle
+        btn.dataset.isCaptain = false;
+        btn.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            toggleCaptain(position, btn);
+        });
     } else {
         btn.innerHTML = '<i class="fas fa-plus text-2xl"></i>';
+    }
+}
+
+// Toggle captain
+function toggleCaptain(position, btn) {
+    if (captainPosition === position) {
+        captainPosition = null;
+        btn.dataset.isCaptain = false;
+        btn.style.border = '';
+    } else {
+        captainPosition = position;
+        document.querySelectorAll('.position-btn').forEach(b => {
+            b.style.border = '';
+            b.dataset.isCaptain = false;
+        });
+        btn.dataset.isCaptain = true;
+        btn.style.border = '2px solid gold';
     }
 }
 
@@ -108,6 +133,46 @@ document.addEventListener('click', (e) => {
         modal.classList.add('hidden');
     }
 });
+
+// Setup rules button
+function setupRulesButton() {
+    const rulesButton = document.getElementById('rulesButton');
+    const rulesModal = document.getElementById('rulesModal');
+    const closeRulesModal = document.getElementById('closeRulesModal');
+
+    rulesButton.addEventListener('click', () => {
+        rulesModal.classList.remove('hidden');
+    });
+
+    closeRulesModal.addEventListener('click', () => {
+        rulesModal.classList.add('hidden');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (e.target === rulesModal) {
+            rulesModal.classList.add('hidden');
+        }
+    });
+}
+
+// Setup field background upload
+function setupFieldBackgroundUpload() {
+    const input = document.getElementById('fieldBackgroundInput');
+    const footballField = document.getElementById('footballField');
+
+    input.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                footballField.style.backgroundImage = `url(${event.target.result})`;
+                footballField.style.backgroundSize = 'cover';
+                footballField.style.backgroundPosition = 'center';
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+}
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', init);
