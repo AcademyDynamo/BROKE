@@ -81,6 +81,49 @@
     </nav>
   </footer>
 
+<!-- Rules Modal -->
+<div id="rulesModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-lg w-full max-w-md p-6 relative">
+        <button id="closeRulesModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        <h2 class="text-xl font-bold mb-4">Правила</h2>
+        <p class="text-gray-700">
+            Баллы начисляются за:
+            <ul class="list-disc pl-6">
+                <li>Голы (+5 баллов)</li>
+                <li>Ассисты (+3 балла)</li>
+                <li>Чистые матчи (для защитников и вратарей) (+4 балла)</li>
+                <li>Сэйвы (для вратарей) (+1 балл за каждый сэйв)</li>
+                <li>Желтые карточки (-1 балл)</li>
+                <li>Красные карточки (-3 балла)</li>
+            </ul>
+        </p>
+    </div>
+</div>
+
+<!-- Leaderboard Modal -->
+<div id="leaderboardModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-lg w-full max-w-md p-6 relative">
+        <button id="closeLeaderboardModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        <h2 class="text-xl font-bold mb-4">Таблица лидеров</h2>
+        <table class="w-full text-sm text-left">
+            <thead>
+                <tr class="border-b">
+                    <th class="py-2">Место</th>
+                    <th class="py-2">Игрок</th>
+                    <th class="py-2 text-right">Баллы</th>
+                </tr>
+            </thead>
+            <tbody id="leaderboardBody">
+                <!-- Leaderboard rows will be populated here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
   <script src="football-script.js"></script>
 </body>
 </html>
