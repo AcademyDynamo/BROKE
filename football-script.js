@@ -1,22 +1,15 @@
+// Football Team Creator - Core Functionality
 let players = [];
 let teamPositions = {
     'Goalkeeper': null,
     'Defender1': null,
     'Defender2': null,
+    'Defender3': null,
     'Midfielder1': null,
     'Midfielder2': null,
     'Forward1': null,
     'Forward2': null
 };
-
-// Sample leaderboard data
-const leaderboardData = [
-    { rank: 1, player: "User1", points: 150 },
-    { rank: 2, player: "User2", points: 140 },
-    { rank: 3, player: "User3", points: 130 },
-    { rank: 4, player: "User4", points: 120 },
-    { rank: 5, player: "User5", points: 110 }
-];
 
 // Load players from JSON
 async function loadPlayers() {
@@ -33,8 +26,6 @@ async function loadPlayers() {
 async function init() {
     await loadPlayers();
     setupPositionButtons();
-    setupFooterNavigation();
-    populateLeaderboard(); // Populate leaderboard on load
 }
 
 // Set up position button click handlers
@@ -82,4 +73,40 @@ function showPlayerSelection(position) {
             playerList.appendChild(playerEl);
         });
     }
-    modal
+    modal.classList.remove('hidden');
+}
+
+// Handle player selection
+function selectPlayer(position, player) {
+    teamPositions[position] = player;
+    updatePositionButton(position, player);
+    document.getElementById('playerModal').classList.add('hidden');
+}
+
+// Update position button with selected player
+function updatePositionButton(position, player) {
+    const btn = document.querySelector(`.position-btn[data-position="${position}"]`);
+    if (player) {
+        btn.innerHTML = `
+            <div class="w-full h-full flex flex-col items-center justify-center p-1">
+              <img src="${player.playerPhoto}" class="w-10 h-10 rounded-lg mb-1 object-cover">
+              <div class="text-xs text-center font-medium truncate w-full">
+                ${player.firstName.charAt(0)}. ${player.lastName}
+              </div>
+            </div>
+        `;
+    } else {
+        btn.innerHTML = '<i class="fas fa-plus text-2xl"></i>';
+    }
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('playerModal');
+    if (e.target === modal) {
+        modal.classList.add('hidden');
+    }
+});
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', init);
