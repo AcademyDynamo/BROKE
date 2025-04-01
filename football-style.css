@@ -1,13 +1,14 @@
 /* Football Field Styling */
 .football-field {
-    background: linear-gradient(to bottom, #16a34a, #22c55e, #16a34a);
+    background: url('assets/field.svg') no-repeat center center;
+    background-size: cover;
     position: relative;
     overflow: hidden;
     border-radius: 0.5rem;
-    height: 24rem; /* Высота поля */
-    width: 100%; /* Ширина поля */
-    max-width: 48rem; /* Максимальная ширина поля */
-    margin: 0 auto; /* Центрирование поля */
+    height: 500px; /* Увеличенная высота поля */
+    width: 100%;
+    max-width: 48rem;
+    margin: 0 auto;
 }
 
 .field-lines {
@@ -15,7 +16,6 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    border-radius: 0.5rem;
 }
 
 /* Position Buttons */
@@ -29,9 +29,9 @@
     border-radius: 12px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background: white;
-    width: 4rem; /* Ширина кнопки */
-    height: 4rem; /* Высота кнопки */
-    position: absolute; /* Абсолютное позиционирование */
+    width: 4rem;
+    height: 4rem;
+    position: relative;
 }
 
 .position-btn:hover {
@@ -47,8 +47,8 @@
 .position-btn img.player-photo {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Корректное отображение фото */
-    border-radius: 10px; /* Закругленные углы фото */
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 /* Club Logo */
@@ -58,89 +58,46 @@
     right: 0.25rem;
     width: 1.5rem;
     height: 1.5rem;
-    border-radius: 50%; /* Круглый логотип */
-    object-fit: cover; /* Корректное отображение логотипа */
-    border: 1px solid white; /* Белая граница вокруг логотипа */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid white;
 }
 
 /* Player Selection Modal */
 #playerModal {
-    backdrop-filter: blur(2px); /* Размытие фона */
+    backdrop-filter: blur(2px);
     z-index: 50;
 }
 
 .modal-content {
     background: white;
-    border-radius: 0.5rem; /* Закругленные углы */
-    max-height: 80vh; /* Максимальная высота */
+    border-radius: 0.5rem;
+    max-height: 80vh;
     overflow: hidden;
-    padding: 1.5rem;
 }
 
 #playerList {
-    max-height: 60vh; /* Максимальная высота списка игроков */
-    overflow-y: auto; /* Прокрутка */
+    max-height: 60vh;
+    overflow-y: auto;
 }
 
 .player-item {
     padding: 0.75rem;
-    border-bottom: 1px solid #e5e7eb; /* Разделитель между игроками */
+    border-bottom: 1px solid #e5e7eb;
     transition: background-color 0.2s ease;
     cursor: pointer;
 }
 
 .player-item:hover {
-    background-color: #f3f4f6; /* Фон при наведении */
+    background-color: #f3f4f6;
 }
 
 .player-item img {
     width: 2.5rem;
     height: 2.5rem;
-    border-radius: 9999px; /* Круглое изображение */
-    object-fit: cover; /* Корректное отображение фото */
+    border-radius: 9999px;
+    object-fit: cover;
     margin-right: 0.75rem;
-}
-
-/* Rules and Leaderboard Modals */
-#rulesModal, #leaderboardModal {
-    backdrop-filter: blur(2px);
-    z-index: 50;
-}
-
-#rulesModal .modal-content,
-#leaderboardModal .modal-content {
-    background: white;
-    border-radius: 0.5rem;
-    max-height: 80vh;
-    overflow: hidden;
-    padding: 1.5rem;
-}
-
-#rulesModal h2,
-#leaderboardModal h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-#rulesModal ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-}
-
-#leaderboardModal table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-#leaderboardModal th,
-#leaderboardModal td {
-    padding: 0.5rem;
-    text-align: left;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-#leaderboardModal th {
-    font-weight: bold;
 }
 
 /* Responsive Adjustments */
@@ -153,6 +110,6 @@
     }
 
     .football-field {
-        height: 80vw; /* Адаптивная высота поля */
+        height: 80vw;
     }
 }
