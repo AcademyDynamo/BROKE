@@ -58,3 +58,23 @@
         height: 80vw;
     }
 }
+
+/* Leaderboard Styling */
+#leaderboardBody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+#leaderboardBody td, #leaderboardBody th {
+    padding: 0.5rem;
+}
+
+#leaderboardBody th {
+    font-weight: bold;
+    color: #4b5563;
+}
+
+/* Rules Modal */
+#rulesModal {
+    backdrop-filter: blur(2px);
+    z-index: 50;
+}
