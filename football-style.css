@@ -11,25 +11,33 @@
     margin: 0 auto;
 }
 
+/* Position Containers */
+.position-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /* Position Buttons */
 .position-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     border: 2px solid #e5e7eb;
     cursor: pointer;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 12px; /* Закругленные углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Добавлена тень */
     background: white;
-    width: 4rem;
-    height: 4rem;
-    position: relative;
+    width: 100%; /* Прямоугольные кнопки */
+    height: 6rem; /* Увеличенная высота */
+    overflow: hidden;
+    animation: pulse 2s infinite; /* Анимация для всех иконок */
 }
 
 .position-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Усиленная тень при наведении */
 }
 
 .position-btn i {
@@ -37,7 +45,7 @@
     transition: all 0.2s ease;
 }
 
-.position-btn img.player-photo {
+.position-btn img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -60,6 +68,28 @@
 #playerModal {
     backdrop-filter: blur(2px);
     z-index: 50;
+}
+
+/* Player Name */
+.player-name {
+    font-size: 0.8rem;
+    color: #4b5563;
+    margin-top: 0.5rem;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Animation for Position Buttons */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
 }
 
 .modal-content {
