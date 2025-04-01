@@ -27,6 +27,7 @@ async function init() {
     setupPositionButtons();
 }
 
+// Update position button with selected player
 function updatePositionButton(position, player) {
     const container = document.querySelector(`.position-container [data-position="${position}"]`);
     const playerName = container.nextElementSibling;
