@@ -1,11 +1,9 @@
 /* Football Field Styling */
 .football-field {
-    background: url('assets/field.svg') no-repeat center center;
-    background-size: cover;
+    background: linear-gradient(to bottom, #16a34a, #22c55e, #16a34a);
     position: relative;
     overflow: hidden;
     border-radius: 0.5rem;
-    height: 96vh; /* Увеличим высоту для лучшего отображения фона */
 }
 
 .field-lines {
