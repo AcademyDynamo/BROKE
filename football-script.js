@@ -1,4 +1,3 @@
-﻿// Football Team Creator - Core Functionality
 let players = [];
 let teamPositions = {
     'Goalkeeper': null,
@@ -7,17 +6,20 @@ let teamPositions = {
     'Defender3': null,
     'Midfielder1': null,
     'Midfielder2': null,
-    'Forward': null
+    'Forward1': null,
+    'Forward2': null
 };
 
 // Load players from JSON
 async function loadPlayers() {
     try {
         const response = await fetch('players.json');
+        if (!response.ok) throw new Error('Failed to load players');
         players = (await response.json()).players;
         console.log('Players loaded:', players.length);
     } catch (error) {
         console.error('Error loading players:', error);
+        alert('Failed to load player data. Please check your internet connection.');
     }
 }
 
@@ -46,7 +48,6 @@ function showPlayerSelection(position) {
     const selectedPlayerIds = Object.values(teamPositions)
         .filter(p => p !== null)
         .map(p => p.id);
-
     const filteredPlayers = players.filter(p =>
         p.position === position.split(/\d+/)[0] &&
         !selectedPlayerIds.includes(p.id)
@@ -61,19 +62,18 @@ function showPlayerSelection(position) {
             const playerEl = document.createElement('div');
             playerEl.className = 'player-item p-2 border-b cursor-pointer hover:bg-gray-100';
             playerEl.innerHTML = `
-        <div class="flex items-center">
-          <img src="${player.playerPhoto}" class="w-10 h-10 rounded-lg mr-3">
-          <div>
-            <div class="font-medium">${player.firstName} ${player.lastName}</div>
-            <div class="text-sm text-gray-600">${player.club}</div>
-          </div>
-        </div>
-      `;
+                <div class="flex items-center">
+                  <img src="${player.playerPhoto}" class="w-10 h-10 rounded-lg mr-3">
+                  <div>
+                    <div class="font-medium">${player.firstName} ${player.lastName}</div>
+                    <div class="text-sm text-gray-600">${player.club}</div>
+                  </div>
+                </div>
+            `;
             playerEl.addEventListener('click', () => selectPlayer(position, player));
             playerList.appendChild(playerEl);
         });
     }
-
     modal.classList.remove('hidden');
 }
 
@@ -89,13 +89,13 @@ function updatePositionButton(position, player) {
     const btn = document.querySelector(`.position-btn[data-position="${position}"]`);
     if (player) {
         btn.innerHTML = `
-      <div class="w-full h-full flex flex-col items-center justify-center p-1">
-        <img src="${player.playerPhoto}" class="w-10 h-10 rounded-lg mb-1 object-cover">
-        <div class="text-xs text-center font-medium truncate w-full">
-          ${player.firstName.charAt(0)}. ${player.lastName}
-        </div>
-      </div>
-    `;
+            <div class="w-full h-full flex flex-col items-center justify-center p-1">
+              <img src="${player.playerPhoto}" class="w-10 h-10 rounded-lg mb-1 object-cover">
+              <div class="text-xs text-center font-medium truncate w-full">
+                ${player.firstName.charAt(0)}. ${player.lastName}
+              </div>
+            </div>
+        `;
     } else {
         btn.innerHTML = '<i class="fas fa-plus text-2xl"></i>';
     }
@@ -108,17 +108,6 @@ document.addEventListener('click', (e) => {
         modal.classList.add('hidden');
     }
 });
-
-// Update existing team positions structure
-teamPositions = {
-    'Goalkeeper': null,
-    'Defender1': null,
-    'Defender2': null,
-    'Midfielder1': null,
-    'Midfielder2': null,
-    'Forward1': null,
-    'Forward2': null
-};
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', init);
