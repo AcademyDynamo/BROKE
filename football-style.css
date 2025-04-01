@@ -1,9 +1,11 @@
 /* Football Field Styling */
 .football-field {
-    background: linear-gradient(to bottom, #16a34a, #22c55e, #16a34a);
+    background: url('assets/field.svg') no-repeat center center;
+    background-size: cover;
     position: relative;
     overflow: hidden;
     border-radius: 0.5rem;
+    height: 96vh; /* Увеличим высоту для лучшего отображения */
 }
 
 .field-lines {
@@ -43,43 +45,6 @@
     border-radius: 10px;
 }
 
-/* Player Selection Modal */
-#playerModal {
-    backdrop-filter: blur(2px);
-    z-index: 50;
-}
-
-.modal-content {
-    background: white;
-    border-radius: 0.5rem;
-    max-height: 80vh;
-    overflow: hidden;
-}
-
-#playerList {
-    max-height: 60vh;
-    overflow-y: auto;
-}
-
-.player-item {
-    padding: 0.75rem;
-    border-bottom: 1px solid #e5e7eb;
-    transition: background-color 0.2s ease;
-    cursor: pointer;
-}
-
-.player-item:hover {
-    background-color: #f3f4f6;
-}
-
-.player-item img {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 9999px;
-    object-fit: cover;
-    margin-right: 0.75rem;
-}
-
 /* Responsive Adjustments */
 @media (max-width: 640px) {
     .position-btn {
@@ -88,28 +53,6 @@
         min-width: 3rem;
         min-height: 3rem;
     }
-    /* Captain Icon */
-.position-btn[data-is-captain="true"]::after {
-    content: "⭐";
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: gold;
-    color: white;
-    width: 16px;
-    height: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 10px;
-}
-
-/* Rules Modal */
-#rulesModal {
-    backdrop-filter: blur(2px);
-    z-index: 50;
-}
 
     .football-field {
         height: 80vw;
