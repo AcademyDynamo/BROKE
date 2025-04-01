@@ -157,12 +157,6 @@ function openLeaderboardModal() {
     modal.classList.remove('hidden');
 }
 
-// Close Leaderboard Modal
-function closeLeaderboardModal() {
-    const modal = document.getElementById('leaderboardModal');
-    modal.classList.add('hidden');
-}
-
 // Populate leaderboard table
 function populateLeaderboard() {
     const leaderboardBody = document.getElementById('leaderboardBody');
@@ -184,6 +178,51 @@ function populateLeaderboard() {
         leaderboardBody.appendChild(row);
     });
 }
+
+// Close Leaderboard Modal
+function closeLeaderboardModal() {
+    const modal = document.getElementById('leaderboardModal');
+    modal.classList.add('hidden');
+}
+
+// Setup footer navigation
+function setupFooterNavigation() {
+    const rulesButton = document.getElementById('rulesButton');
+    const leaderboardButton = document.getElementById('leaderboardButton');
+
+    rulesButton.addEventListener('click', () => {
+        openRulesModal();
+    });
+
+    leaderboardButton.addEventListener('click', () => {
+        openLeaderboardModal();
+        populateLeaderboard(); // Populate leaderboard when opened
+    });
+
+    // Close modals when clicking the close button
+    document.getElementById('closeRulesModal').addEventListener('click', closeRulesModal);
+    document.getElementById('closeLeaderboardModal').addEventListener('click', closeLeaderboardModal);
+
+    // Close modals when clicking outside the modal content
+    document.addEventListener('click', (e) => {
+        const rulesModal = document.getElementById('rulesModal');
+        const leaderboardModal = document.getElementById('leaderboardModal');
+
+        if (e.target === rulesModal) {
+            closeRulesModal();
+        }
+
+        if (e.target === leaderboardModal) {
+            closeLeaderboardModal();
+        }
+    });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+    setupFooterNavigation();
+});
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', init);
